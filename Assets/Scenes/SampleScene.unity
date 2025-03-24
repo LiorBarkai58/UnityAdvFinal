@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 1261089348}
   - component: {fileID: 1261089352}
   - component: {fileID: 1261089351}
+  - component: {fileID: 1261089353}
   - component: {fileID: 1261089350}
   m_Layer: 0
   m_Name: FollowCamera
@@ -795,6 +796,36 @@ MonoBehaviour:
       Wait: 1
       Time: 2
     Restrictions: 0
+--- !u!114 &1261089353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261089347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7de3aefa901374ba29464584a3109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraRadius: 0.4
+  Decollision:
+    Enabled: 0
+    ObstacleLayers:
+      serializedVersion: 2
+      m_Bits: 1
+    UseFollowTarget:
+      Enabled: 0
+      YOffset: 0
+    Damping: 0.5
+    SmoothingTime: 0
+  TerrainResolution:
+    Enabled: 1
+    TerrainLayers:
+      serializedVersion: 2
+      m_Bits: 1
+    MaximumRaycast: 10
+    Damping: 0.5
 --- !u!1 &1351261092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 2047985032}
-  followCamera: {fileID: 0}
+  followCamera: {fileID: 1261089348}
 --- !u!4 &2047985030
 Transform:
   m_ObjectHideFlags: 0
