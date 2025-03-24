@@ -1,7 +1,13 @@
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Rigidbody Rb;
+
+    [SerializeField] private CinemachineCamera followCamera;
+    private Vector3 _InputDirection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -9,8 +15,17 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Vector3 CameraForward = followCamera.transform.forward.normalized;
+        Vector3 CameraRight = followCamera.transform.right.normalized;
+        Rb.linearVelocity = _InputDirection.x * CameraRight + _InputDirection.y * CameraForward;
+    }
+
+    public void OnMove(InputAction.CallbackContext context){
+        if(context.performed){
+            Vector2 inputValue = context.ReadValue<Vector2>();
+            _InputDirection = new Vector3(inputValue.x,0, inputValue.y);
+        }
     }
 }
