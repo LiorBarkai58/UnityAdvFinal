@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int IsJumping = Animator.StringToHash("IsJumping");
+    private static readonly int IsFalling = Animator.StringToHash("IsFalling");
+    private static readonly int Death = Animator.StringToHash("Death");
+
+
     [Header("Character References")]
     [SerializeField] private Rigidbody Rb;
 
@@ -11,16 +17,54 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform Visuals;
 
+    [SerializeField] private Animator animator;
+
     [Header("Character Data")]
 
     [SerializeField] private MovementData movementData;
 
     [SerializeField] private PlayerTransform playerTransform;
     private Vector3 _InputDirection;
+
+    private float ySpeed;
+
+    private bool isJumping;
+    private bool isGrounded;
+    private bool isFalling;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         playerTransform.PlayersTransform = transform;
+    }
+
+    private void Update()
+    {
+        ySpeed = Rb.linearVelocity.y;
+
+        if (GroundCheck())
+        {
+            isGrounded = true;
+            isFalling = false;
+            isJumping = false;
+
+        }
+        else
+        {
+            isGrounded= false;
+            if(isJumping && ySpeed < 0 || ySpeed > -2)
+            {
+                isFalling = true;
+            }
+        }
+        if (animator)
+        {
+            animator.SetFloat(Speed, Rb.linearVelocity.magnitude);
+            animator.SetBool(IsJumping, isGrounded);
+            animator.SetBool(IsFalling, isFalling);
+            animator.SetBool(IsJumping, isJumping);
+
+        }
     }
 
     void FixedUpdate()
@@ -50,7 +94,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool GroundCheck()
+    {
+        RaycastHit hit;
+        return Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f);
+    }
+
     private void Jump(){
+        isJumping = true;
         Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, movementData.JumpForce, Rb.linearVelocity.z);
     }
 

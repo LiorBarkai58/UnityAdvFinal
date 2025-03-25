@@ -166,6 +166,7 @@ MonoBehaviour:
   Rb: {fileID: 2698259140045900558}
   followCamera: {fileID: 0}
   Visuals: {fileID: 1497604943223840046}
+  animator: {fileID: 8646004411902327919}
   movementData: {fileID: 11400000, guid: 5fc9beaab94b1024cb510127276aaf59, type: 2}
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
 --- !u!114 &7050880921821570670
@@ -378,6 +379,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95226846252001880, guid: 9984be23625843a48a44d88aae5669f2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 442095064d9344a40869ae0817a100ff, type: 2}
+    - target: {fileID: 95226846252001880, guid: 9984be23625843a48a44d88aae5669f2, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1204491028683902, guid: 9984be23625843a48a44d88aae5669f2, type: 3}
@@ -394,5 +403,10 @@ PrefabInstance:
 --- !u!4 &8556543381477137923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4615360315754548, guid: 9984be23625843a48a44d88aae5669f2, type: 3}
+  m_PrefabInstance: {fileID: 8551939299745699383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8646004411902327919 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95226846252001880, guid: 9984be23625843a48a44d88aae5669f2, type: 3}
   m_PrefabInstance: {fileID: 8551939299745699383}
   m_PrefabAsset: {fileID: 0}
