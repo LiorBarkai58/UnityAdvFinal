@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: e32922fba25a9134aa3fac82437877e3
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176573
+  packageName: Giant Golem AnimSet
+  packageVersion: 1.41
+  assetPath: Assets/Gient_Golem_AnimSet/Animation/Humanoid/attack_ground02.fbx
+  uploadId: 708687
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -831,8 +836,7 @@ ModelImporter:
     - name: Bip001 R Finger42
       parentName: Bip001 R Finger41
       position: {x: -0.03260071, y: 0.00000015258789, z: 0}
-      rotation: {x: -0.000000011181809, y: -0.0000000018266462, z: -0.0032202618,
-        w: 0.9999948}
+      rotation: {x: -0.000000011181809, y: -0.0000000018266462, z: -0.0032202618, w: 0.9999948}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: Bip001 R ForeTwist
       parentName: Bip001 R UpperArm
@@ -856,8 +860,7 @@ ModelImporter:
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e33ec2acca3cc1944be7b31f19d21403,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e33ec2acca3cc1944be7b31f19d21403, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
@@ -869,10 +872,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 176573
-  packageName: Giant Golem AnimSet
-  packageVersion: 1.41
-  assetPath: Assets/Gient_Golem_AnimSet/Animation/Humanoid/attack_ground02.fbx
-  uploadId: 708687

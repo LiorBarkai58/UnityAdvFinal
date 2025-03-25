@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 58d6846854c8d2b4c8fb11b21cfa19a5
+guid: dfeefc4155d40ab4e99b9bdd22258893
 AssetOrigin:
   serializedVersion: 1
   productId: 176573
   packageName: Giant Golem AnimSet
   packageVersion: 1.41
-  assetPath: Assets/Gient_Golem_AnimSet/Animation/Humanoid/idle.fbx
+  assetPath: Assets/Gient_Golem_AnimSet/Animation/Humanoid/attack_ground01.fbx
   uploadId: 708687
 ModelImporter:
   serializedVersion: 22200
@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
-      takeName: idle
-      internalID: -5252816984213320552
-      firstFrame: 0
-      lastFrame: 50
+      name: attack_ground01
+      takeName: attack_ground01
+      internalID: -7942747323634436130
+      firstFrame: 1
+      lastFrame: 143
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
