@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Combat/CombatData")]
+[CreateAssetMenu(menuName = "Character/CombatData")]
 public class CombatData : ScriptableObject {
     [SerializeField] private float maxHealth;
 

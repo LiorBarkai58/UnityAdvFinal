@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Character Data")]
 
-    [SerializeField] private float movementSpeed = 5;
+    [SerializeField] private MovementData movementData;
 
-    [SerializeField] private float jumpForce = 10;
+    [SerializeField] private PlayerTransform playerTransform;
     private Vector3 _InputDirection;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerTransform.PlayersTransform = transform;
     }
 
     void FixedUpdate()
@@ -33,9 +34,10 @@ public class PlayerController : MonoBehaviour
         CameraForward.Normalize();
         CameraRight.Normalize();
 
-        Vector3 movement = (_InputDirection.x * CameraRight + _InputDirection.z * CameraForward) * movementSpeed;
+        Vector3 movement = (_InputDirection.x * CameraRight + _InputDirection.z * CameraForward) * movementData.Speed;
         movement.y = Rb.linearVelocity.y;
         Rb.linearVelocity = movement;
+
 
         if (movement.sqrMagnitude > 0.01f) 
         {
@@ -46,7 +48,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump(){
-        Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, jumpForce, Rb.linearVelocity.z);
+        Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, movementData.JumpForce, Rb.linearVelocity.z);
     }
 
     public void OnMove(InputAction.CallbackContext context){
@@ -64,4 +66,6 @@ public class PlayerController : MonoBehaviour
             Jump();    
         }
     }
+
+    
 }
