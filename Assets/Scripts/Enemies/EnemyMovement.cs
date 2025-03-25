@@ -6,9 +6,11 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private Rigidbody RB;
     [SerializeField] private PlayerTransform playerTransform;
 
-
+    [Header("Debug")]
+    [SerializeField] private bool DisableMovement = false;
     private void FixedUpdate()
     {
+        if(DisableMovement) return;
         Vector3 direction = (playerTransform.PlayersTransform.position - transform.position).normalized;
         direction.y = 0;
 
