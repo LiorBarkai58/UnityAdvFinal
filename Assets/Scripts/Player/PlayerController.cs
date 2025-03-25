@@ -42,8 +42,11 @@ public class PlayerController : MonoBehaviour
         if (movement.sqrMagnitude > 0.01f) 
         {
             Vector3 lookDirection = new Vector3(movement.x, 0, movement.z);
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);
+            if(lookDirection != Vector3.zero){
+                Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+                Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);    
+            }
+            
         }
     }
 

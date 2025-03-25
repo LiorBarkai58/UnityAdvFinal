@@ -2,9 +2,11 @@ using UnityEngine;
 
 
 public class Projectile : MonoBehaviour{
-    public Vector3 Direction;//public for debug change later
+    private Vector3 Direction;
 
     [SerializeField] private ProjectileData projectileData;
+
+    [SerializeField] private bool PlayerProjectile;
 
 
     public void SetDirection(Vector3 direction){
@@ -14,5 +16,16 @@ public class Projectile : MonoBehaviour{
     private void Update()
     {
         transform.position += Direction *projectileData.ProjectileSpeed * Time.deltaTime;
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.CompareTag("Enemy")){
+            CombatManager enemyCombat = collision.GetComponent<CombatManager>();
+            if(enemyCombat){
+                enemyCombat.TakeDamage(new DamageArgs{ Damage = projectileData.Damage});
+                Destroy(gameObject);
+            }
+        }
     }
 }

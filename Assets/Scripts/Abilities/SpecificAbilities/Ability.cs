@@ -22,12 +22,13 @@ public abstract class Ability : MonoBehaviour {
     }
     public virtual void Activate(){
         if(!onCooldown){
-            AbilityLogic();
-            onCooldown = true;
+            if(AbilityLogic()){
+                onCooldown = true;
+            }
         }
     }
 
-    public abstract void AbilityLogic();
+    public abstract bool AbilityLogic();//returns true if the ability was used successfully
 
 
 
