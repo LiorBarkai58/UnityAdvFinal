@@ -20,6 +20,7 @@ public class CombatManager : MonoBehaviour
     public void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         if(currentHealth <= 0){
+            OnDeath?.Invoke();
         }
     }
 
