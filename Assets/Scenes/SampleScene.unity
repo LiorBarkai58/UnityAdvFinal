@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
-  m_LocalPosition: {x: 0, y: 1.46, z: -6}
+  m_LocalRotation: {x: 0.50192684, y: 0, z: 0, w: 0.86491007}
+  m_LocalPosition: {x: 0, y: 5.46, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -580,7 +580,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.95
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1261089347
@@ -655,8 +655,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261089347}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
-  m_LocalPosition: {x: 0, y: 1.46, z: -6}
+  m_LocalRotation: {x: 0.50192684, y: 0, z: 0, w: 0.86491007}
+  m_LocalPosition: {x: 0, y: 5.46, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -756,15 +756,15 @@ MonoBehaviour:
   Radius: 10
   Orbits:
     Top:
-      Radius: 3
-      Height: 5
+      Radius: 4
+      Height: 7
     Center:
-      Radius: 6
-      Height: 3
+      Radius: 8
+      Height: 6
     Bottom:
-      Radius: 5
-      Height: 1.5
-    SplineCurvature: 1
+      Radius: 4
+      Height: 1
+    SplineCurvature: 0
   RecenteringTarget: 2
   HorizontalAxis:
     Value: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
+    Value: 45
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rb: {fileID: 2047985032}
   followCamera: {fileID: 1261089348}
+  movementSpeed: 5
 --- !u!4 &2047985030
 Transform:
   m_ObjectHideFlags: 0
