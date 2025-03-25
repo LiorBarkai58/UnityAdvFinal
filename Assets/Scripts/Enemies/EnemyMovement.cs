@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private MovementData movementData;
     [SerializeField] private Rigidbody RB;
     [SerializeField] private PlayerTransform playerTransform;
+    [SerializeField] private Animator animator;
 
     [Header("Debug")]
     [SerializeField] private bool DisableMovement = false;
