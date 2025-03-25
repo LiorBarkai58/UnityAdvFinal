@@ -9,7 +9,7 @@ public class CombatManager : MonoBehaviour
 
     public event UnityAction<DamageArgs> OnTakeDamage;
 
-    public event UnityAction OnDeath; 
+    public event UnityAction<CombatManager> OnDeath; 
 
 
     private void OnEnable()
@@ -20,7 +20,7 @@ public class CombatManager : MonoBehaviour
     public void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         if(currentHealth <= 0){
-            OnDeath?.Invoke();
+            OnDeath?.Invoke(this);
         }
     }
 
