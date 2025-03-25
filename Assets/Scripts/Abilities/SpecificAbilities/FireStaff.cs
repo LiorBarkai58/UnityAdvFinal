@@ -22,22 +22,31 @@ public class FireStaff : Ability
         else return false;
     }
 
-    void OnTiggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy")){
             CombatManager enemyCombat = other.GetComponent<CombatManager>();
             if(enemyCombat){
                 enemiesInRange.Add(enemyCombat);
+                enemyCombat.OnDeath += HandleEnemyDeath;
             }
         }
     }
-    void OnTiggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Enemy")){
             CombatManager enemyCombat = other.GetComponent<CombatManager>();
             if(enemyCombat && enemiesInRange.Contains(enemyCombat)){
                 enemiesInRange.Remove(enemyCombat);
+                enemyCombat.OnDeath -= HandleEnemyDeath;
+
             }
+        }
+    }
+
+    private void HandleEnemyDeath(CombatManager enemy){
+        if(enemiesInRange.Contains(enemy)){
+            enemiesInRange.Remove(enemy);
         }
     }
 }

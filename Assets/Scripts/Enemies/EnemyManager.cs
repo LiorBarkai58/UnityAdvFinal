@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour {
         combatManager.OnDeath += HandleDeath;
     }
 
-    private void HandleDeath(){
+    private void HandleDeath(CombatManager combatManager){
         gameObject.SetActive(false);
     }
 
