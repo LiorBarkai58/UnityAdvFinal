@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Transform Visuals;
 
+    [SerializeField] private Animator animator;
+
     [Header("Character Data")]
 
     [SerializeField] private MovementData movementData;
@@ -21,6 +23,14 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         playerTransform.PlayersTransform = transform;
+    }
+
+    private void Update()
+    {
+        if(animator)
+        {
+            animator.SetFloat("Speed", Rb.linearVelocity.magnitude);
+        }
     }
 
     void FixedUpdate()
