@@ -580,7 +580,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.95
+  m_Height: 2.03
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1261089347
@@ -1447,6 +1447,7 @@ MonoBehaviour:
   followCamera: {fileID: 1261089348}
   Visuals: {fileID: 503222143}
   movementSpeed: 5
+  jumpForce: 6
 --- !u!4 &2047985030
 Transform:
   m_ObjectHideFlags: 0
@@ -1505,6 +1506,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2c7191da-dc21-4462-a15c-a6cb218cb7e9
     m_ActionName: 'Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2047985029}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cc9aeccb-99a1-42fd-b6e6-f48ac071e08b
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
