@@ -15,27 +15,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 5;
     private Vector3 _InputDirection;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 CameraForward = followCamera.transform.forward;
         Vector3 CameraRight = followCamera.transform.right;
 
-        // Ignore vertical influence
         CameraForward.y = 0;
         CameraRight.y = 0;
 
-        // Normalize vectors
         CameraForward.Normalize();
         CameraRight.Normalize();
 
-        // Calculate movement direction
         Vector3 movement = (_InputDirection.x * CameraRight + _InputDirection.z * CameraForward) * movementSpeed;
         Rb.linearVelocity = movement;
 
