@@ -9,7 +9,6 @@ public class FireStaff : Ability
     public List<CombatManager> enemiesInRange = new List<CombatManager>();
     public override bool AbilityLogic()
     {
-        Debug.Log($"Activated");
         if(enemiesInRange.Count > 0){
             Projectile currentProjectile = Instantiate(FireBallPrefab, transform.position, Quaternion.identity);
 
