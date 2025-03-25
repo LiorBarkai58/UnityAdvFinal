@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CinemachineCamera followCamera;
 
+    [SerializeField] private Transform Visuals;
+
     [Header("Character Data")]
 
     [SerializeField] private float movementSpeed = 5;
@@ -25,16 +27,24 @@ public class PlayerController : MonoBehaviour
         Vector3 CameraForward = followCamera.transform.forward;
         Vector3 CameraRight = followCamera.transform.right;
 
-        // Remove vertical influence
+        // Ignore vertical influence
         CameraForward.y = 0;
         CameraRight.y = 0;
 
-        // Normalize to prevent slow diagonal movement
+        // Normalize vectors
         CameraForward.Normalize();
         CameraRight.Normalize();
 
-        // Corrected movement direction (z instead of y)
-        Rb.linearVelocity = (_InputDirection.x * CameraRight + _InputDirection.z * CameraForward) * movementSpeed;
+        // Calculate movement direction
+        Vector3 movement = (_InputDirection.x * CameraRight + _InputDirection.z * CameraForward) * movementSpeed;
+        Rb.linearVelocity = movement;
+
+        if (movement.sqrMagnitude > 0.01f) 
+        {
+            Vector3 lookDirection = new Vector3(movement.x, 0, movement.z);
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+            Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context){

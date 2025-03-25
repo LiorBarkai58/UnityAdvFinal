@@ -1445,6 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rb: {fileID: 2047985032}
   followCamera: {fileID: 1261089348}
+  Visuals: {fileID: 503222143}
   movementSpeed: 5
 --- !u!4 &2047985030
 Transform:
@@ -1517,7 +1518,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047985028}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
