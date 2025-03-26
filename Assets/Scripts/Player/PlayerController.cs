@@ -100,7 +100,8 @@ public class PlayerController : MonoBehaviour
         movement.y = Rb.linearVelocity.y;
         Rb.linearVelocity = movement;
 
-        animator.SetFloat(Speed, Rb.linearVelocity.magnitude);
+        if (animator)
+            animator.SetFloat(Speed, Rb.linearVelocity.magnitude);
 
 
 

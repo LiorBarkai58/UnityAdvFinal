@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 
 
 public class EnemyManager : MonoBehaviour {
     [SerializeField] private CombatManager combatManager;
+    
+    public event UnityAction OnEnemyKilled;
 
     private void Start()
     {
@@ -12,6 +15,7 @@ public class EnemyManager : MonoBehaviour {
 
     private void HandleDeath(CombatManager combatManager){
         gameObject.SetActive(false);
+        OnEnemyKilled?.Invoke();
     }
 
     private void OnValidate()

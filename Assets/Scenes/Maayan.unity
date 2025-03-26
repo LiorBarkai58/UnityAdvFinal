@@ -459,6 +459,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1171459776 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8774487987593042323, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+  m_PrefabInstance: {fileID: 6572278284640490077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1261089348 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1545725797191778229, guid: 13d72bedd1bc9dc4e83f8b7677f54177, type: 3}
@@ -822,11 +827,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1377040450 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4006945323725035956, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
-  m_PrefabInstance: {fileID: 6572278284640490077}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1981289373
 Mesh:
   m_ObjectHideFlags: 0
@@ -1067,17 +1067,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
-      propertyPath: animator
+      propertyPath: Rb
       value: 
-      objectReference: {fileID: 1377040450}
-    - target: {fileID: 4006945323725035956, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: be73df03abf02284486d1afabcf5d4fe, type: 3}
-    - target: {fileID: 4006945323725035956, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c46eb87216deb794aaf8d4a9f02bafc9, type: 2}
+      objectReference: {fileID: 1171459776}
+    - target: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.693843
@@ -1146,6 +1142,10 @@ PrefabInstance:
     - target: {fileID: 3441178782645637169, guid: 8412ac030efe4cf47b919b98f4064d77, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441178782645637169, guid: 8412ac030efe4cf47b919b98f4064d77, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5917648191847246243, guid: 8412ac030efe4cf47b919b98f4064d77, type: 3}
       propertyPath: m_LocalPosition.x
