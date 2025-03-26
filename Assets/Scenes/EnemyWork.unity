@@ -519,6 +519,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2047985030}
+    - target: {fileID: 8006569692680747755, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.800049
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006569692680747755, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10.300049
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -571,6 +579,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 1257246361}
+--- !u!95 &1135021607 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 389579794996366771, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+  m_PrefabInstance: {fileID: 6572278284640490077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257246359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1263,7 @@ PrefabInstance:
     - target: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1135021607}
     - target: {fileID: 4006945323725035956, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_Controller
       value: 
