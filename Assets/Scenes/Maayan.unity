@@ -1074,6 +1074,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 389579794996366771, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 60391ea340b9e324b89faa20014326aa, type: 2}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.693843
