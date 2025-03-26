@@ -38,8 +38,28 @@ public class PlayerController : MonoBehaviour
         playerTransform.PlayersTransform = transform;
     }
 
-    private void Update()
+    
+
+    void FixedUpdate()
     {
+        HandleJump();
+        HandleMovement();
+        
+    }
+
+    private bool GroundCheck()
+    {
+        RaycastHit hit;
+        return Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f);
+    }
+
+    private void Jump(){
+        if(isGrounded){
+            isJumping = true;
+            Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, movementData.JumpForce, Rb.linearVelocity.z);
+        }
+    }
+    private void HandleJump(){
         ySpeed = Rb.linearVelocity.y;
 
         if (GroundCheck())
@@ -59,7 +79,6 @@ public class PlayerController : MonoBehaviour
         }
         if (animator)
         {
-            animator.SetFloat(Speed, Rb.linearVelocity.magnitude);
             animator.SetBool(IsJumping, isGrounded);
             animator.SetBool(IsFalling, isFalling);
             animator.SetBool(IsJumping, isJumping);
@@ -67,8 +86,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
+    private void HandleMovement(){
         Vector3 CameraForward = followCamera.transform.forward;
         Vector3 CameraRight = followCamera.transform.right;
 
@@ -82,24 +100,19 @@ public class PlayerController : MonoBehaviour
         movement.y = Rb.linearVelocity.y;
         Rb.linearVelocity = movement;
 
+        animator.SetFloat(Speed, Rb.linearVelocity.magnitude);
+
+
 
         if (movement.sqrMagnitude > 0.01f) 
         {
             Vector3 lookDirection = new Vector3(movement.x, 0, movement.z);
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);
+            if(lookDirection != Vector3.zero){
+                Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+                Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);    
+            }
+            
         }
-    }
-
-    private bool GroundCheck()
-    {
-        RaycastHit hit;
-        return Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f);
-    }
-
-    private void Jump(){
-        isJumping = true;
-        Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, movementData.JumpForce, Rb.linearVelocity.z);
     }
 
     public void OnMove(InputAction.CallbackContext context){
