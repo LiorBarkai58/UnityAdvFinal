@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsGamePaused = false;
-    public GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
 
     private void Start()
     {
@@ -12,30 +12,25 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (IsGamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        
     }
     public void Resume()
     {
-        Debug.Log("resuming game");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         IsGamePaused = false;
-        Debug.Log($"timescale is now {Time.timeScale}");
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("resuming game");
     }
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         IsGamePaused = true;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

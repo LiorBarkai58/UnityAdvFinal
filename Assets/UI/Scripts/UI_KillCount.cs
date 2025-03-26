@@ -1,25 +1,23 @@
+using TMPro;
 using UnityEngine;
 
 public class UI_KillCount : MonoBehaviour
 {
-    private int kills;
-    private CombatManager combatManager;
+    private int killsNumber;
     private EnemyManager enemyManager;
+    public TextMeshProUGUI counterText;
 
     void Start()
     {
-        kills = 0;
-        combatManager.OnDeath += RegisterKill;
+        killsNumber = 0;
+        enemyManager.OnEnemyKilled += RegisterKill;
+        counterText.SetText(killsNumber.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RegisterKill()
     {
-        
-    }
-
-    private void RegisterKill(CombatManager combatManager)
-    {
-        kills++;
+        Debug.Log("enemy killed");
+        killsNumber++;
+        counterText.SetText(killsNumber.ToString());
     }
 }
