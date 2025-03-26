@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f324f8a57fdf4c832d38e8849991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Direction: {x: 0, y: 0, z: 0}
   projectileData: {fileID: 11400000, guid: 798c6a285eb69604c9148806b482f0af, type: 2}
+  PlayerProjectile: 0
 --- !u!135 &534232699507332308
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.27
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &590640653976857063
 PrefabInstance:
