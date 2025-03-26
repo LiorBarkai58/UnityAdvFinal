@@ -2,9 +2,14 @@ using UnityEngine;
 
 
 public class PlayerManager : MonoBehaviour {
+
+    private static readonly int Death = Animator.StringToHash("Death");
+
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] private CombatManager playerCombat;
+
+    [SerializeField] private Animator animator;
 
 
 
@@ -24,7 +29,8 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void HandleDeath(CombatManager combatManager){
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        animator.SetTrigger(Death);
         Debug.Log("Player Death");
     }
 }
