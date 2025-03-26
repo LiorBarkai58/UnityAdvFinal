@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    private void HandleDeath(){
+    private void HandleDeath(CombatManager combatManager){
         gameObject.SetActive(false);
         Debug.Log("Player Death");
     }
