@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UI_Minimap : MonoBehaviour
 {
-    public Camera miniMapCam;
+    [SerializeField] private Camera miniMapCam;
     public Transform playerCamera;
     public Transform playerTransform;
 
