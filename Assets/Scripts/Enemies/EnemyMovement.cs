@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -13,12 +14,17 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private Animator animator;
 
-    [SerializeField] private float aoeAttackRange = 30;
+    [SerializeField] private float aoeAttackRange = 20;
+    [SerializeField] private float aoeAttackCooldown = 5;
+
     [SerializeField] private float punchAttackRange = 5;
-    [SerializeField] private float attackCooldown = 5;
+    [SerializeField] private float punchAttackCooldown = 2;
 
     private bool isAttacking;
-    private int attackType;
+    private float lastPunchAttackTime;
+    private float lastAOEAttackTime;
+    private int currentAttackType;
+
 
     [Header("Debug")]
     [SerializeField] private bool DisableMovement = false;
@@ -48,33 +54,31 @@ public class EnemyMovement : MonoBehaviour {
 
     private void HandleAttack()
     {
+        float currentTime = Time.time;
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.PlayersTransform.position);
 
-        if (distanceToPlayer <= punchAttackRange)
+        if (distanceToPlayer <= punchAttackRange && currentTime - lastPunchAttackTime >= punchAttackCooldown)
         {
-            attackType = PunchAttack;
+            Attack(PunchAttack, ref lastPunchAttackTime);
         }
-        else if (distanceToPlayer <= aoeAttackRange)
+        else if (distanceToPlayer <= aoeAttackRange && currentTime - lastAOEAttackTime >= aoeAttackCooldown)
         {
-            attackType = AOEAttack;
+            Attack(AOEAttack, ref lastAOEAttackTime);
         }
-        else
-        {
-            return;
-        }
-        Attack();
     }
 
-    private void Attack()
+    private void Attack(int attackType, ref float lastAttackTime)
     {
         isAttacking = true;
+        currentAttackType = attackType;
+        lastAttackTime = Time.time;
         animator.SetTrigger(attackType);
     }
 
     public void OnAttackEnd() //animation event
     {
         isAttacking = false;
-        animator.ResetTrigger(attackType);
+        animator.ResetTrigger(currentAttackType);
     }
 
 

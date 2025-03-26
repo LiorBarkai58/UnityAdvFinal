@@ -155,10 +155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementData: {fileID: 11400000, guid: 594b43baa9541174b87791674cbbba68, type: 2}
-  RB: {fileID: 8774487987593042323}
+  Rb: {fileID: 8774487987593042323}
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 389579794996366771}
-  attackRange: 5
+  aoeAttackRange: 20
+  aoeAttackCooldown: 4
+  punchAttackRange: 5
+  punchAttackCooldown: 4
   DisableMovement: 0
 --- !u!95 &389579794996366771
 Animator:
