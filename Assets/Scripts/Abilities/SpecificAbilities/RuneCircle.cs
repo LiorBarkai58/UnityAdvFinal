@@ -1,23 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class FireStaff : Ability
+public class RuneCircle : Ability
 {
-    [SerializeField] private Projectile FireBallPrefab;
 
     private List<CombatManager> enemiesInRange = new List<CombatManager>();
+
+    [SerializeField] private float Damage;
+
     public override bool AbilityLogic()
     {
-        if(enemiesInRange.Count > 0){
-            Projectile currentProjectile = Instantiate(FireBallPrefab, transform.position, Quaternion.identity);
+        if(enemiesInRange.Count == 0) return false;
 
-            CombatManager enemyTarget = enemiesInRange[Random.Range(0, enemiesInRange.Count-1)];
-            Vector3 direction = (enemyTarget.transform.position - transform.position).normalized;
-            currentProjectile.SetDirection(direction);
-            return true;
+        // Create a copy of the list to iterate over, different abilities can kill an enemy during the iteration and change the original list
+        List<CombatManager> enemiesSnapshot = new List<CombatManager>(enemiesInRange);
+
+        foreach (CombatManager enemy in enemiesSnapshot)
+        {
+            if(enemy) enemy.TakeDamage(new DamageArgs { Damage = this.Damage });
         }
-        else return false;
+        return true;
     }
 
     void OnTriggerEnter(Collider other)

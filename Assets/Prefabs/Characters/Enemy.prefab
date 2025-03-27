@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3b61e18b7f1f94d9d4565070b121b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatManager: {fileID: 7350380542907332338}
+  combatManager: {fileID: 8378416862651298449}
 --- !u!114 &27601172201498688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,11 +249,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6740387203795546973}
-  - component: {fileID: 7350380542907332338}
   - component: {fileID: 8016056929107775343}
+  - component: {fileID: 8378416862651298449}
   m_Layer: 6
   m_Name: Combat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,19 +273,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1565676103446801264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7350380542907332338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9022737568590168451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b8f52b279124848981717e8a428526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
 --- !u!65 &8016056929107775343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,12 +288,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.4392719, y: 2.453696, z: 1}
   m_Center: {x: -0.00987339, y: 0.726848, z: 0}
+--- !u!114 &8378416862651298449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022737568590168451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863b81411b16bc847aae7c0ca774a785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
 --- !u!1001 &3949630569348403358
 PrefabInstance:
   m_ObjectHideFlags: 0
