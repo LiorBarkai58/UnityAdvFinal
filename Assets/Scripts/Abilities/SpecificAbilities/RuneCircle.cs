@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class RuneCircle : Ability
@@ -18,7 +19,7 @@ public class RuneCircle : Ability
 
         foreach (CombatManager enemy in enemiesSnapshot)
         {
-            if(enemy) enemy.TakeDamage(new DamageArgs { Damage = this.Damage });
+            if(enemy) enemy.TakeDamage(new DamageArgs { Damage = this.Damage * _damageModifier });
         }
         return true;
     }
@@ -54,7 +55,7 @@ public class RuneCircle : Ability
     {
         base.UpgradeAbility();
         if(_level %2 == 0){
-            
+            transform.DOScale(this.transform.localScale * 1.15f, 0.3f);//Increase scale by 15% per second level
         }
         else{
             _damageModifier+= 0.1f;//Increase damage by 10% every second level
