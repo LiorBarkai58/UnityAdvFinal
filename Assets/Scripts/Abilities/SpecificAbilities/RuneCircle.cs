@@ -8,6 +8,7 @@ public class RuneCircle : Ability
 
     [SerializeField] private float Damage;
 
+
     public override bool AbilityLogic()
     {
         if(enemiesInRange.Count == 0) return false;
@@ -47,6 +48,16 @@ public class RuneCircle : Ability
     private void HandleEnemyDeath(CombatManager enemy){
         if(enemiesInRange.Contains(enemy)){
             enemiesInRange.Remove(enemy);
+        }
+    }
+    public override void UpgradeAbility()
+    {
+        base.UpgradeAbility();
+        if(_level %2 == 0){
+            
+        }
+        else{
+            _damageModifier+= 0.1f;//Increase damage by 10% every second level
         }
     }
 }
