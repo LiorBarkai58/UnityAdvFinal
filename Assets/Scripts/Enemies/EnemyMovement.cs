@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
     [Header("Debug")]
     [SerializeField] private bool DisableMovement = false;
 
-   public bool isAttacking = true;
+   public bool isAttacking;
 
     private void FixedUpdate()
     {

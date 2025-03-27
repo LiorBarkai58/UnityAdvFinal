@@ -43,8 +43,13 @@ public abstract class EnemyAttack : MonoBehaviour
         movement.isAttacking = true;
         animator.SetTrigger(Attack);
     }
+
+    protected abstract void ApplyDamage();
+
     public virtual void OnAttackEnd() //animation event
     {
+        Debug.Log("Attackendevent");
+        ApplyDamage();
         movement.isAttacking = false;
         animator.ResetTrigger(Attack);
     }

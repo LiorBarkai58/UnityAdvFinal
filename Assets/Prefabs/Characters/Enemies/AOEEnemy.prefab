@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.72
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8152185921835689499
 MonoBehaviour:
@@ -83,9 +83,13 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 902760d167fe9604e8ffbeeef816673a, type: 2}
+    - target: {fileID: 1801416585560245758, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: triggerHandler
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.904205
+      value: -18.773165
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.96399
+      value: -5.514972
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -127,9 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AOEEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5410443049607453746, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3948373050305602418, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+    - {fileID: 8706033387768855391, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8357484705798328408, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       insertIndex: -1
@@ -167,27 +176,15 @@ MonoBehaviour:
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 6643815030033813105}
   movement: {fileID: 6429325305412381570}
+  attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
+  triggerHandler: {fileID: 8152185921835689499}
   attackRange: 20
   attackCooldown: 5
-  attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
-  playerCombat: {fileID: 4565047463707391280}
-  triggerHandler: {fileID: 8152185921835689499}
 --- !u!4 &3071527912229442458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8357484705798328408, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
   m_PrefabInstance: {fileID: 6438883388185936834}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4565047463707391280 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7350380542907332338, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
-  m_PrefabInstance: {fileID: 6438883388185936834}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b8f52b279124848981717e8a428526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6429325305412381570 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
