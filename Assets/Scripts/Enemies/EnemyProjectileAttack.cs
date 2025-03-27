@@ -1,10 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyProjectileAttack : EnemyAttack
+public class EnemyProjectileAttack : MonoBehaviour
 {
-    protected override void StartAttack()
-    {
-        base.StartAttack();
-    }
+
 }
