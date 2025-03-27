@@ -15,7 +15,7 @@ public class CombatManager : MonoBehaviour
 
     public event UnityAction<CombatManager> OnDeath; 
 
-    public void TakeDamage(DamageArgs damageArgs){
+    public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         OnTakeDamage?.Invoke(damageArgs);
         if(currentHealth <= 0){

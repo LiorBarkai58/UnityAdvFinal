@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 460665509419679545, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3927882289975368501, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_Pivot.x
@@ -587,15 +587,15 @@ PrefabInstance:
       objectReference: {fileID: 747677009}
     - target: {fileID: 4449706579232961075, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 4449706579232961075, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4713280869858940441, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478569374739592678, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_Color.b
@@ -619,15 +619,15 @@ PrefabInstance:
       objectReference: {fileID: 747677009}
     - target: {fileID: 8249114836498765806, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 8249114836498765806, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8249114836498765806, guid: 330ac0facfa5a8f438a4132c89758007, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -785,6 +785,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 5983351563385283730, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 217
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983351563385283730, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2655
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983351563385283730, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -313
+      objectReference: {fileID: 0}
     - target: {fileID: 7008450426323000704, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
       propertyPath: pauseMenuUI
       value: 
@@ -913,7 +925,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 3
   FireBallPrefab: {fileID: 8647183588057173746, guid: 0e5456dd41ec76a45866754a634c107a, type: 3}
-  enemiesInRange: []
 --- !u!135 &1257246362
 SphereCollider:
   m_ObjectHideFlags: 0

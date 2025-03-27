@@ -3,9 +3,13 @@ using UnityEngine;
 public class UI_Minimap : MonoBehaviour
 {
     [SerializeField] private Camera miniMapCam;
-    public Transform playerCamera;
-    public Transform playerTransform;
+    [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform playerTransform;
 
+    private void Start()
+    {
+        miniMapCam.transform.position = playerTransform.transform.position;
+    }
     private void LateUpdate()
     {
         Vector3 newPosition = playerTransform.position;
@@ -13,5 +17,6 @@ public class UI_Minimap : MonoBehaviour
         miniMapCam.transform.position = newPosition;
 
         miniMapCam.transform.rotation = Quaternion.Euler(90f, playerCamera.eulerAngles.y, 0);
+        //Debug.Log($"current player position: {playerTransform.transform.position} \ncurrent camera position: {miniMapCam.transform.position}");
     }
 }

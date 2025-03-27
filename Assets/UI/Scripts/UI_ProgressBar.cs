@@ -5,17 +5,15 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class UI_ProgressBar : MonoBehaviour
 {
-    public int maximum;
-    public int current;
-    public Image Fill;
-
-    private void Update()
+    public int Maximum;
+    public int Current;
+    [SerializeField] private Image Fill;
+    
+    public void SetFillAmount(float current, float max)
     {
-        SetFillAmount();
-    }
-    private void SetFillAmount()
-    {
-        float currentFill = (float)current / (float)maximum;
+        current = Current;
+        max = Maximum;
+        float currentFill = (float)Current / (float)Maximum;
 
         Fill.fillAmount = currentFill;
     }
