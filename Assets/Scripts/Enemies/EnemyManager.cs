@@ -4,6 +4,10 @@ using UnityEngine.Events;
 
 
 public class EnemyManager : MonoBehaviour {
+
+    private static readonly int Death = Animator.StringToHash("Death");
+
+    [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
     
     public event UnityAction<EnemyManager> OnDeath;
@@ -16,6 +20,7 @@ public class EnemyManager : MonoBehaviour {
     private void HandleDeath(CombatManager combatManager){
         gameObject.SetActive(false);
         OnDeath?.Invoke(this);
+        animator.SetTrigger(Death);
     }
 
     private void OnValidate()

@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 2698259140045900558}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   playerStats: {fileID: 8821314261282688888}
   abilityManager: {fileID: 2498958899333522166}
   playerCombat: {fileID: 43842735177367979}
+  animator: {fileID: 8646004411902327919}
 --- !u!114 &2804393288965952793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +311,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cc9aeccb-99a1-42fd-b6e6-f48ac071e08b
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47faf538-0964-4efe-abe3-032acea002d1
+    m_ActionName: 'Player/Pause[/Keyboard/escape,/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
