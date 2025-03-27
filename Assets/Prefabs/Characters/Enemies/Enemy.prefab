@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatManager: {fileID: 7350380542907332338}
+  animator: {fileID: 389579794996366771}
 --- !u!114 &27601172201498688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,11 +159,8 @@ MonoBehaviour:
   Rb: {fileID: 8774487987593042323}
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 389579794996366771}
-  aoeAttackRange: 20
-  aoeAttackCooldown: 4
-  punchAttackRange: 5
-  punchAttackCooldown: 4
   DisableMovement: 0
+  isAttacking: 1
 --- !u!95 &389579794996366771
 Animator:
   serializedVersion: 7
