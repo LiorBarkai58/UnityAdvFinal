@@ -7,10 +7,10 @@ public class EnemyManager : MonoBehaviour {
 
     private static readonly int Death = Animator.StringToHash("Death");
 
-    [SerializeField] private CombatManager combatManager;
     [SerializeField] private Animator animator;
+    [SerializeField] private EnemyCombatManager combatManager;
     
-    public event UnityAction OnEnemyKilled;
+    public event UnityAction<EnemyManager> OnDeath;
 
     private void Start()
     {
@@ -18,15 +18,15 @@ public class EnemyManager : MonoBehaviour {
     }
 
     private void HandleDeath(CombatManager combatManager){
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        OnDeath?.Invoke(this);
         animator.SetTrigger(Death);
-        OnEnemyKilled?.Invoke();
     }
 
     private void OnValidate()
     {
         if(!combatManager){
-            combatManager = gameObject.GetComponentInChildren<CombatManager>();
+            combatManager = gameObject.GetComponentInChildren<EnemyCombatManager>();
         }
     }
 

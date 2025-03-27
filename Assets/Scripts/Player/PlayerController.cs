@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private bool isFalling;
+
+    public event UnityAction OnPlayerPause;
 
     void Start()
     {
@@ -132,5 +135,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("pause pressed");
+            OnPlayerPause?.Invoke();
+        }
+    }
 }
