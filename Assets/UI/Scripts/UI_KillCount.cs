@@ -14,7 +14,7 @@ public class UI_KillCount : MonoBehaviour
         counterText.SetText(killsNumber.ToString());
     }
 
-    private void RegisterKill()
+    private void RegisterKill(EnemyManager enemy)
     {
         Debug.Log("enemy killed");
         killsNumber++;
