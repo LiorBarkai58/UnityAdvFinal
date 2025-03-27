@@ -36,8 +36,12 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void HandleDeath(CombatManager combatManager){
-        //gameObject.SetActive(false);
         animator.SetTrigger(Death);
         Debug.Log("Player Death");
+    }
+
+    private void UpdateStats(){
+        abilityManager.SetAttackSpeed(playerStats.GetStatValue(Stats.AttackSpeed));
+        playerCombat.UpdateMaxHealth(playerStats.GetStatValue(Stats.MaxHealth));
     }
 }
