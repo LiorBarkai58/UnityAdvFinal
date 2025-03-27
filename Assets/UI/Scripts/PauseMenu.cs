@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -34,6 +35,13 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-       
+    }
+    public void OptionsButton()
+    {
+        Debug.Log("options");
+    }
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(1);
     }
 }
