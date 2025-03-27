@@ -15,7 +15,6 @@ public class FireStaff : Ability
             CombatManager enemyTarget = enemiesInRange[Random.Range(0, enemiesInRange.Count-1)];
             Vector3 direction = (enemyTarget.transform.position - transform.position).normalized;
             currentProjectile.SetDirection(direction);
-
             return true;
         }
         else return false;
