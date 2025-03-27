@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyManager : MonoBehaviour {
     [SerializeField] private EnemyCombatManager combatManager;
     
-    public event UnityAction OnEnemyKilled;
+    public event UnityAction OnDeath;
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
 
     private void HandleDeath(CombatManager combatManager){
         gameObject.SetActive(false);
-        OnEnemyKilled?.Invoke();
+        OnDeath?.Invoke();
     }
 
     private void OnValidate()

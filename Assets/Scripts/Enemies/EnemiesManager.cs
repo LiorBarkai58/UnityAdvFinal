@@ -3,17 +3,17 @@ using UnityEngine;
 
 
 public class EnemiesManager : MonoBehaviour {
-    public List<EnemyCombatManager> enemiesCombat = new List<EnemyCombatManager>();//Will be made internally later but currently uses scene references
+    public List<EnemyManager> enemies = new List<EnemyManager>();//Will be made internally later but currently uses scene references
 
     private int KillCounter = 0;
     void Start()
     {
-        foreach(EnemyCombatManager enemy in enemiesCombat){
+        foreach(EnemyManager enemy in enemies){
             enemy.OnDeath += HandleEnemyDeath;
         }
     }
 
-    private void HandleEnemyDeath(CombatManager combatManager){
+    private void HandleEnemyDeath(){
         KillCounter++;
     }
 }

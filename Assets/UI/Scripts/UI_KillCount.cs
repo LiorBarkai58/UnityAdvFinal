@@ -10,7 +10,7 @@ public class UI_KillCount : MonoBehaviour
     void Start()
     {
         killsNumber = 0;
-        enemyManager.OnEnemyKilled += RegisterKill;
+        enemyManager.OnDeath += RegisterKill;
         counterText.SetText(killsNumber.ToString());
     }
 
