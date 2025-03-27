@@ -122,6 +122,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3948373050305602418, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+    - {fileID: 8706033387768855391, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+    - {fileID: 7909908804032131196, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8357484705798328408, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       insertIndex: -1
@@ -156,7 +158,8 @@ MonoBehaviour:
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 7370651550757687633}
   movement: {fileID: 7152788594657195170}
-  attackRange: 20
+  FireBallPrefab: {fileID: 8647183588057173746, guid: a10d6ec5700c8ee4aa53471205432b7c, type: 3}
+  attackRange: 30
   attackCooldown: 2
 --- !u!114 &7152788594657195170 stripped
 MonoBehaviour:
