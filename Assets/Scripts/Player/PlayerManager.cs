@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour {
 
     [SerializeField] private AbilityManager abilityManager;
 
-    [SerializeField] private CombatManager playerCombat;
+    [SerializeField] private PlayerCombatManager playerCombat;
 
 
 
@@ -16,13 +16,14 @@ public class PlayerManager : MonoBehaviour {
     {
         playerStats.Initialize();
         abilityManager.SetAttackSpeed(playerStats.GetStatValue(Stats.AttackSpeed));
+        playerCombat.Initialize(playerStats.GetStatValue(Stats.MaxHealth));
         playerCombat.OnDeath += HandleDeath;
     }
 
     private void OnValidate()
     {
         if(!playerCombat){
-            playerCombat = gameObject.GetComponentInChildren<CombatManager>();
+            playerCombat = gameObject.GetComponentInChildren<PlayerCombatManager>();
         }
         if(!playerController){
             playerController = gameObject.GetComponent<PlayerController>();

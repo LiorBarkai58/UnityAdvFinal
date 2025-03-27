@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 
 public class EnemyManager : MonoBehaviour {
-    [SerializeField] private CombatManager combatManager;
+    [SerializeField] private EnemyCombatManager combatManager;
     
     public event UnityAction OnEnemyKilled;
 
@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour {
     private void OnValidate()
     {
         if(!combatManager){
-            combatManager = gameObject.GetComponentInChildren<CombatManager>();
+            combatManager = gameObject.GetComponentInChildren<EnemyCombatManager>();
         }
     }
 
