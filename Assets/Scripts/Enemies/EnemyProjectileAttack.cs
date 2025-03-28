@@ -47,7 +47,7 @@ public class EnemyProjectileAttack : MonoBehaviour
         animator.SetTrigger(ProjectileAttack);
     }
 
-    public void OnAttack()
+    public void OnAttack() //animatin event
     {
         EnemyProjectile currentProjectile = Instantiate(FireBallPrefab, projectilePos.position, Quaternion.identity);
         Vector3 direction = (playerTransform.PlayersTransform.position - transform.position).normalized;

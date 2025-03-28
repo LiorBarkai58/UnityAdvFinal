@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9c1cce21648984bab83922fd9fb201, type: 3}
   m_Name: OrcMovement
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   jumpForce: 0
