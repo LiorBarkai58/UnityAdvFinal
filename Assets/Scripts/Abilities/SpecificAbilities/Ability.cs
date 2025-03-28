@@ -8,6 +8,12 @@ public abstract class Ability : MonoBehaviour {
     private float elapsedCooldown = 0;
 
     private bool onCooldown = false;
+    protected int _level = 1;
+
+    public int Level => _level;
+
+    protected float _damageModifier = 1;
+
 
     //Attackspeed multiplier is a way to reduce the cooldown and increase the recharge rate of abilities
     public void AbilityUpdate(float AttackSpeedMultiplier = 1)//Ran by the ability manager and no personal update function
@@ -30,6 +36,8 @@ public abstract class Ability : MonoBehaviour {
 
     public abstract bool AbilityLogic();//returns true if the ability was used successfully
 
-
+    public virtual void UpgradeAbility(){
+        _level++;
+    }
 
 }

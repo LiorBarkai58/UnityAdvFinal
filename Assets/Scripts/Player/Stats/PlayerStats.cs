@@ -6,7 +6,6 @@ public enum Stats {
     AttackSpeed,
     MaxHealth,
     ExpGain,
-    Damage,
     CritChance
 }
 
