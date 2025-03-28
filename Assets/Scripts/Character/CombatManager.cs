@@ -19,7 +19,7 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
     public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
@@ -27,7 +27,7 @@ public class CombatManager : MonoBehaviour
         if(currentHealth <= 0){
             OnDeath?.Invoke(this);
         }
-        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
 
     public void RestoreHealth(float Health){
