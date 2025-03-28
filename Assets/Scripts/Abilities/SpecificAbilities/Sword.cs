@@ -22,6 +22,10 @@ public class Sword : RuneCircle
             Vector3 endValue = this.transform.localScale * 1.15f;
             endValue.y = 1;
             transform.DOScale(endValue, 0.3f);//Increase scale by 15% per second level
+
+            var mainModule = effect.main; // Get a copy of the MainModule struct
+            mainModule.startSizeMultiplier *= 1.15f;
+            
         }
         else{
             _damageModifier+= 0.1f;//Increase damage by 10% every second level
