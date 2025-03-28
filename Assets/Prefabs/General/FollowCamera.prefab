@@ -108,7 +108,7 @@ MonoBehaviour:
       Radius: 8
       Height: 6
     Bottom:
-      Radius: 4
+      Radius: 6
       Height: 1
     SplineCurvature: 0
   RecenteringTarget: 2
