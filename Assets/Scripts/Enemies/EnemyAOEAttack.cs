@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyAOEAttack : MonoBehaviour
 {
-    private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int AOEAttack = Animator.StringToHash("AOEAttack");
 
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private Animator animator;
@@ -11,10 +11,6 @@ public class EnemyAOEAttack : MonoBehaviour
 
     [SerializeField] private CombatData attackData;
     [SerializeField] TriggerHandler triggerHandler;
-
-    [SerializeField] private float attackRange = 20;
-    [SerializeField] private float attackCooldown;
-
 
     private CombatManager playerCombat;
 
@@ -30,7 +26,7 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.PlayersTransform.position);
 
-        if (distanceToPlayer <= attackRange && canAttack)
+        if (distanceToPlayer <= attackData.Range && canAttack)
         {
             canAttack = false;
             StartAttack();
@@ -40,7 +36,7 @@ public class EnemyAOEAttack : MonoBehaviour
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(attackData.Cooldown);
         canAttack = true;
     }
 
@@ -48,21 +44,18 @@ public class EnemyAOEAttack : MonoBehaviour
     private void StartAttack()
     {
         movement.isAttacking = true;
-        animator.SetTrigger(Attack);
+        animator.SetTrigger(AOEAttack);
     }
 
     public void OnAttackEnd() //animation event
     {
-        Debug.Log("Attackendevent");
         ApplyDamage();
         movement.isAttacking = false;
-        animator.ResetTrigger(Attack);
+        animator.ResetTrigger(AOEAttack);
     }
 
     public void HandleTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.tag);
-        Debug.Log(collision.gameObject);
         if (collision.CompareTag("Player"))
         {
             Debug.Log(collision);
@@ -71,10 +64,6 @@ public class EnemyAOEAttack : MonoBehaviour
             if (playerCombat == null)
             {
                 Debug.Log("playercombat null");
-            }
-            else
-            {
-                Debug.Log(playerCombat);
             }
         }
     }

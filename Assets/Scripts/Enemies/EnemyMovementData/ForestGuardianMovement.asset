@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad9c1cce21648984bab83922fd9fb201, type: 3}
-  m_Name: OrcMovement
+  m_Name: ForestGuardianMovement
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   jumpForce: 0

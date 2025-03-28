@@ -8,6 +8,13 @@ public class CombatData : ScriptableObject {
 
     [SerializeField] private bool takeKnockback = false;
 
+    [SerializeField] private float cooldown;
+
+    [SerializeField] private float range;
+
+
+    public float Range => range;
+    public float Cooldown => cooldown;
 
     public float MaxHealth => maxHealth;
 

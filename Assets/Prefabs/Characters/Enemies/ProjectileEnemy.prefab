@@ -71,21 +71,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: movementData
+      value: 
+      objectReference: {fileID: 11400000, guid: ec8370296beac584b85c20fa5e622b10, type: 2}
     - target: {fileID: 389579794996366771, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 9625d525ef991bb498cd6cd6d349ffbf, type: 2}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.0061293
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.8681483
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.1806664
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -122,6 +126,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3948373050305602418, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+    - {fileID: 8706033387768855391, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+    - {fileID: 7909908804032131196, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8357484705798328408, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       insertIndex: -1
@@ -156,8 +162,10 @@ MonoBehaviour:
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 7370651550757687633}
   movement: {fileID: 7152788594657195170}
-  attackRange: 20
-  attackCooldown: 2
+  FireBallPrefab: {fileID: 5982180822278968853, guid: a10d6ec5700c8ee4aa53471205432b7c, type: 3}
+  attackData: {fileID: 11400000, guid: fdb9d6e10aa4814468d84bb77b4e33d3, type: 2}
+  attackRange: 30
+  attackCooldown: 1.94
 --- !u!114 &7152788594657195170 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 27601172201498688, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9c1cce21648984bab83922fd9fb201, type: 3}
-  m_Name: OrcMovement
+  m_Script: {fileID: 11500000, guid: 4a14db01a1b3b624d90eb4b0832aab0a, type: 3}
+  m_Name: TestProjectile
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 0
+  damage: 1
+  projectileSpeed: 5
