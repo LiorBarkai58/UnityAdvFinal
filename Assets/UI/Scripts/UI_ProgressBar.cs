@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [ExecuteInEditMode()]
 public class UI_ProgressBar : MonoBehaviour
 {
+    
     [SerializeField] private Image Fill;
     public void SetFillAmount(float current, float max)
     {
