@@ -3,17 +3,20 @@ using System.Collections;
 
 public class EnemyProjectileAttack : MonoBehaviour
 {
-    private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int IsMirrored = Animator.StringToHash("IsMirrored");
 
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private EnemyProjectile FireBallPrefab;
+    [SerializeField] private CombatData attackData;
+
 
     [SerializeField] private float attackRange = 20;
     [SerializeField] private float attackCooldown;
 
     private bool canAttack = true;
+    private bool isMirrored;
 
     private void FixedUpdate()
     {
@@ -41,11 +44,13 @@ public class EnemyProjectileAttack : MonoBehaviour
 
     private void StartAttack()
     {
-        // animator.SetTrigger(Attack);
+        isMirrored = !isMirrored;
+        animator.SetBool(IsMirrored, isMirrored);
+        animator.SetLayerWeight(1, 100);
         EnemyProjectile currentProjectile = Instantiate(FireBallPrefab, transform.position, Quaternion.identity);
         Vector3 direction = (playerTransform.PlayersTransform.position - transform.position).normalized;
         currentProjectile.SetDirection(direction);
-      //  animator.ResetTrigger(Attack);
+        animator.SetLayerWeight(1, 0);
     }
 
 }

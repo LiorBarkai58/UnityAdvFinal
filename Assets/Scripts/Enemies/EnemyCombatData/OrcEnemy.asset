@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133f2c71343526408604187f36d34f9, type: 3}
   m_Name: OrcEnemy
   m_EditorClassIdentifier: 
-  maxHealth: 15
-  baseDamage: 2
+  maxHealth: 600
+  baseDamage: 4
   takeKnockback: 0
+  cooldown: 5
+  range: 20
