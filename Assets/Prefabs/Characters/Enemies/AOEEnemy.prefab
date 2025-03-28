@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4729027715106258467}
   - component: {fileID: 8859617957550930007}
   - component: {fileID: 8152185921835689499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,32 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5410443049607453746, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410443049607453746, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591689174225484210, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591689174225484210, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7909908804032131196, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378416862651298449, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
+      propertyPath: damageNumberPrefab
+      value: 
+      objectReference: {fileID: 1539922242145635407, guid: fa65188dee063d640ab78242a6174d7a, type: 3}
+    m_RemovedComponents:
+    - {fileID: 1801416585560245758, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3948373050305602418, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
     - {fileID: 8706033387768855391, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
@@ -178,8 +203,8 @@ MonoBehaviour:
   movement: {fileID: 6429325305412381570}
   attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
   triggerHandler: {fileID: 8152185921835689499}
-  attackRange: 20
-  attackCooldown: 5
+  attackWarningEffect: {fileID: 1049843463841446, guid: 9bf7aec720457c347b1e35a3c7034328, type: 3}
+  attackEffect: {fileID: 1159970587636746, guid: 9ef207563109813488d640a0d102c627, type: 3}
 --- !u!4 &3071527912229442458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8357484705798328408, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}

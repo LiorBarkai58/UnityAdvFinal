@@ -6,7 +6,6 @@ public class TriggerHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Collision in trigger");
         enemyAttack?.HandleTriggerEnter(collision);
     }
 
