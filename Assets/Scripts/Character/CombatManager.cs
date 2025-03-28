@@ -3,26 +3,38 @@ using UnityEngine.Events;
 
 public class CombatManager : MonoBehaviour
 {
-    [SerializeField] private CombatData combatData;
+    [SerializeField] protected UI_ProgressBar healthBar;
 
-    private float currentHealth = 0;
+    protected float currentHealth = 0;
+
+    public float CurrentHealth => currentHealth;
+
+    protected float currentMaxHealth = 0;
+
+    public float CurrentMaxHealth => currentMaxHealth;
 
     public event UnityAction<DamageArgs> OnTakeDamage;
 
-    public event UnityAction OnDeath; 
+    public event UnityAction<CombatManager> OnDeath;
 
-
-    private void OnEnable()
+    private void Start()
     {
-        currentHealth = combatData.MaxHealth;   
+        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
-
-    public void TakeDamage(DamageArgs damageArgs){
+    public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
+        OnTakeDamage?.Invoke(damageArgs);
         if(currentHealth <= 0){
-            OnDeath?.Invoke();
+            OnDeath?.Invoke(this);
         }
+        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
 
+    public void RestoreHealth(float Health){
+        currentHealth = Mathf.Clamp(currentHealth + Health, 0, currentMaxHealth);
+        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+    }
+
+    
     
 }
