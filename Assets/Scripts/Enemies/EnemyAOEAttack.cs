@@ -12,7 +12,9 @@ public class EnemyAOEAttack : MonoBehaviour
     [SerializeField] private CombatData attackData;
     [SerializeField] TriggerHandler triggerHandler;
 
-    private CombatManager playerCombat;
+    [SerializeField] private GameObject attackEffect;
+
+    private PlayerCombatManager playerCombat;
 
     private bool isPlayerInCollider = false;
     private bool canAttack = true;
@@ -47,9 +49,18 @@ public class EnemyAOEAttack : MonoBehaviour
         animator.SetTrigger(AOEAttack);
     }
 
+    public void OnAttack() //animation event
+    {
+        if (attackEffect)
+        {
+            attackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
+            Destroy(attackEffect, 1);
+        }
+        ApplyDamage();
+
+    }
     public void OnAttackEnd() //animation event
     {
-        ApplyDamage();
         movement.isAttacking = false;
         animator.ResetTrigger(AOEAttack);
     }
@@ -58,9 +69,9 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log(collision);
+            Debug.Log(collision.name);
             isPlayerInCollider = true;
-            playerCombat = collision.GetComponent<CombatManager>();
+            playerCombat = collision.GetComponent<PlayerCombatManager>();
             if (playerCombat == null)
             {
                 Debug.Log("playercombat null");
