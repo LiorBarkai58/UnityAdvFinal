@@ -12,7 +12,6 @@ public class EnemyAOEAttack : MonoBehaviour
     [SerializeField] private CombatData attackData;
     [SerializeField] TriggerHandler triggerHandler;
 
-    [SerializeField] private GameObject attackWarningEffect;
     [SerializeField] private GameObject attackEffect;
 
     private PlayerCombatManager playerCombat;
@@ -50,24 +49,15 @@ public class EnemyAOEAttack : MonoBehaviour
         animator.SetTrigger(AOEAttack);
     }
 
-
-    public void OnAttackWarning() //animation event
-    {
-        if (attackWarningEffect)
-        {
-            attackWarningEffect = Instantiate(attackWarningEffect, transform.position, Quaternion.identity);
-            Destroy(attackWarningEffect, 1);
-        }
-    }
-
     public void OnAttack() //animation event
     {
         if (attackEffect)
         {
             attackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
-            ApplyDamage();
             Destroy(attackEffect, 1);
         }
+        ApplyDamage();
+
     }
     public void OnAttackEnd() //animation event
     {
@@ -79,6 +69,7 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log(collision.name);
             isPlayerInCollider = true;
             playerCombat = collision.GetComponent<PlayerCombatManager>();
             if (playerCombat == null)
