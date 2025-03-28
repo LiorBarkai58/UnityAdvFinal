@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             Vector3 lookDirection = new Vector3(movement.x, 0, movement.z);
             if(lookDirection != Vector3.zero){
                 Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-                Visuals.rotation = targetRotation;    
+                Visuals.rotation = Quaternion.Slerp(Visuals.rotation, targetRotation, Time.deltaTime * 10f);    
             }
             
         }
