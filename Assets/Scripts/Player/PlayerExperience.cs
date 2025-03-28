@@ -33,4 +33,11 @@ public class PlayerExperience : MonoBehaviour {
         _currentEXP += Mathf.Max(exp * _gainMultiplier, 0);//Make sure you can't take away exp
         CheckForLevelup();
     }
+
+    private void OnTriggerEnter(Collider other){
+
+    }
+    private void OnTriggerExit(Collider other){
+        
+    }
 }
