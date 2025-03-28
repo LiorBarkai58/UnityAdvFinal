@@ -42,4 +42,5 @@ public abstract class Ability : MonoBehaviour {
         _level++;
     }
 
+    
 }

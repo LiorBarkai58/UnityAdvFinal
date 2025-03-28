@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class PlayerExperience : MonoBehaviour {
@@ -11,6 +12,8 @@ public class PlayerExperience : MonoBehaviour {
 
 
     [SerializeField] private int LinearGrowth = 7;
+
+    public event UnityAction OnLevelUp;
 
     public void setMultiplier(float gainMultiplier){
         _gainMultiplier = gainMultiplier;
@@ -25,6 +28,7 @@ public class PlayerExperience : MonoBehaviour {
         if(_currentEXP > currentReq){
             _currentEXP -= currentReq;
             _level++;
+            OnLevelUp?.Invoke();
             CheckForLevelup();
         }
     }
