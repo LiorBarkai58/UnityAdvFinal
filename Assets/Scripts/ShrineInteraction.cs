@@ -15,6 +15,7 @@ public class ShrineInteraction : MonoBehaviour
             //level up event
             interationPrompt.SetActive(false);
             Destroy(frogModel);
+            Destroy(interationPrompt);
         }
     }
 
@@ -22,6 +23,7 @@ public class ShrineInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isInteractRadius = true;
             interationPrompt.SetActive(true);
             playerController = other.GetComponentInParent<PlayerController>();
 
@@ -30,7 +32,6 @@ public class ShrineInteraction : MonoBehaviour
                 Debug.Log($"player controller set to {playerController}");
             }
 
-            isInteractRadius = true;
             Debug.Log($"player entered interaction radius {isInteractRadius}");
             playerController.OnPlayerInteract += HandleInteraction;
         }
@@ -40,9 +41,9 @@ public class ShrineInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            isInteractRadius = false;
             Debug.Log("player left interaction radius");
             interationPrompt.SetActive(false);
-            isInteractRadius = false;
             playerController.OnPlayerInteract -= HandleInteraction;
         }
     }
