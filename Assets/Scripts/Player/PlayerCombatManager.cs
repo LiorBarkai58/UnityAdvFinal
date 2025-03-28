@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerCombatManager : CombatManager {
 
-    [SerializeField] private UI_ProgressBar healthBar;
     public void Initialize(float maxHealth)
     {
         currentMaxHealth = maxHealth;
@@ -24,6 +23,5 @@ public class PlayerCombatManager : CombatManager {
     public override void TakeDamage(DamageArgs damageArgs)
     {
         base.TakeDamage(damageArgs);
-        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
 }
