@@ -743,7 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 4375607318464734523}
   combatData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
-  damageNumberPrefab: {fileID: 0}
+  damageNumberPrefab: {fileID: 1539922242145635407, guid: fa65188dee063d640ab78242a6174d7a, type: 3}
+  experienceShardPrefab: {fileID: 2228254934510376572, guid: 00c062209754bd348a12794739d51162, type: 3}
 --- !u!1001 &3949630569348403358
 PrefabInstance:
   m_ObjectHideFlags: 0

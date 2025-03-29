@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class PlayerExperience : MonoBehaviour {
     private float _currentEXP = 0;
 
     private int _level = 1;
+
+    public int Level => _level;
 
     private float _gainMultiplier = 1;
     public float CurrentEXP
@@ -23,6 +26,11 @@ public class PlayerExperience : MonoBehaviour {
 
 
     [SerializeField] private int LinearGrowth = 7;
+    [SerializeField] private ParticleSystem particles;
+
+    public event UnityAction OnLevelUp;
+
+    public event UnityAction<float, float> OnEXPChange;//Current exp/ Current requirement
 
     public void setMultiplier(float gainMultiplier){
         _gainMultiplier = gainMultiplier;
@@ -34,9 +42,12 @@ public class PlayerExperience : MonoBehaviour {
 
     private void CheckForLevelup(){
         float currentReq = GetLevelupRequirement();
+        OnEXPChange?.Invoke(_currentEXP, currentReq);
         if(_currentEXP > currentReq){
             _currentEXP -= currentReq;
             _level++;
+            particles.Play();
+            OnLevelUp?.Invoke();
             CheckForLevelup();
         }
     }

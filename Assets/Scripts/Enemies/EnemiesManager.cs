@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class EnemiesManager : MonoBehaviour {
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private EnemyPool enemyPool;
-    public List<EnemyManager> enemies = new List<EnemyManager>();//Will be made internally later but currently uses scene references
+    private List<EnemyManager> enemies = new List<EnemyManager>();
 
     [Header("Spawn Details")]
     [SerializeField] private int SpawnInterval = 10;
@@ -14,6 +15,8 @@ public class EnemiesManager : MonoBehaviour {
     [SerializeField] private int AmountToSpawn = 5;
 
     private int KillCounter = 0;
+
+    public event UnityAction<int> OnKillUpdated;
     void Start()
     {
         enemyPool.InitializePool();
@@ -25,6 +28,7 @@ public class EnemiesManager : MonoBehaviour {
         enemyPool.ReleaseEnemy(enemy);
         enemies.Remove(enemy);
         KillCounter++;
+        OnKillUpdated?.Invoke(KillCounter);
     }
 
     private IEnumerator EnemySpawning(){

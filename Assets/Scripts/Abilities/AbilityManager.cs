@@ -5,6 +5,8 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour {
     [SerializeField] private List<Ability> abilities;
 
+    public List<Ability> Abilities => abilities;
+
     private float attackSpeedMultiplier = 1;
     private void Update()
     {
