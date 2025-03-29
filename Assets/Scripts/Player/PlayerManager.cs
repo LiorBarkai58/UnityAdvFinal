@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 
 public class PlayerManager : MonoBehaviour {
@@ -22,6 +24,8 @@ public class PlayerManager : MonoBehaviour {
 
     [Header("References")]
     [SerializeField] private Animator animator;
+
+
 
 
 
@@ -68,4 +72,7 @@ public class PlayerManager : MonoBehaviour {
     private void HandleStatUpgrade(Stats stat){
         playerStats.UpgradeStat(stat);
     }
+
+
+    
 }

@@ -53,6 +53,10 @@ public class PlayerExperience : MonoBehaviour {
             CheckForLevelup();
         }
     }
+    public void ShrineLevelUp(){
+        particles.Play();
+        OnLevelUp?.Invoke();
+    }
 
     private void IncreaseEXP(float exp){
         _currentEXP += Mathf.Max(exp * _gainMultiplier, 0);//Make sure you can't take away exp

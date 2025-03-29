@@ -470,7 +470,7 @@
                     "Player",
                     "GameController",
                     "Enemy",
-                    "Drops"
+                    "ExpShard"
                 ],
                 "_slopeFilter": {
                     "_v1": 0.0,
@@ -613,7 +613,7 @@
                 "z": 0.0
             },
             "_spacingType": 0,
-            "_minSpacing": 1.334066390991211,
+            "_minSpacing": 2.4539260864257814,
             "_randomizePositions": true,
             "_randomness": 1.0,
             "_paintOnSurfaceToolSettings": {
@@ -6572,7 +6572,7 @@
                     "Player",
                     "GameController",
                     "Enemy",
-                    "Drops"
+                    "ExpShard"
                 ]
             }
         ],
@@ -7291,7 +7291,7 @@
             "_origin": {
                 "x": 0.0,
                 "y": 24.40384864807129,
-                "z": 0.0
+                "z": 204.83045959472657
             },
             "_rotation": {
                 "x": 0.0,
