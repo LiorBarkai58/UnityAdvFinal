@@ -15,7 +15,7 @@ public class DeathScreen : MonoBehaviour
     {
         player.OnDeath += HandlePlayerDied;
 
-        subheaderMessages = new()
+        subheaderMessages = new List<string>
         {
             new("don't worry, it's ok, don't feel bad, this is a safe space and we don't judge your skill issue"),
             new("oof, that looks like it hurt"),
