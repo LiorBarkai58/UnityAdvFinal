@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private bool isFalling;
 
     public event UnityAction OnPlayerPause;
+    public event UnityAction OnPlayerInteract;
+
 
     void Start()
     {
@@ -141,6 +143,15 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("pause pressed");
             OnPlayerPause?.Invoke();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("player interacted");
+            OnPlayerInteract?.Invoke();
         }
     }
 }

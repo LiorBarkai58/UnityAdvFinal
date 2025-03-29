@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Drops
+  - ExpShard
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Combat

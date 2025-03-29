@@ -97,7 +97,7 @@ TextMesh:
   m_Alignment: 0
   m_TabSize: 4.9
   m_FontSize: 0
-  m_FontStyle: 2
+  m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   m_Color:
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3bf4bf42a34e8448ba5f94cdf0bea46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RandomIntensity: {x: 0.5, y: 0, z: 0}
 --- !u!95 &3075446743246989736
 Animator:
   serializedVersion: 7

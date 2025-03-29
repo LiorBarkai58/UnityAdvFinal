@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour {
 
     private static readonly int Death = Animator.StringToHash("Death");
 
+    [Header("Player Scripts")]
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] private PlayerStats playerStats;
@@ -13,6 +14,9 @@ public class PlayerManager : MonoBehaviour {
 
     [SerializeField] private PlayerCombatManager playerCombat;
 
+    [SerializeField] private PlayerExperience playerExperience;
+
+    [Header("References")]
     [SerializeField] private Animator animator;
 
 
@@ -43,5 +47,6 @@ public class PlayerManager : MonoBehaviour {
     private void UpdateStats(){
         abilityManager.SetAttackSpeed(playerStats.GetStatValue(Stats.AttackSpeed));
         playerCombat.UpdateMaxHealth(playerStats.GetStatValue(Stats.MaxHealth));
+        playerExperience.setMultiplier(playerStats.GetStatValue(Stats.ExpGain));
     }
 }
