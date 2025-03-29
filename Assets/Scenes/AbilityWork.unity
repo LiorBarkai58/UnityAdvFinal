@@ -941,6 +941,10 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 8727214727304070543, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1983738561}
     - target: {fileID: 8988517507157507682, guid: 44feb63e0bd328343b8b23704abb5e4c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1928,6 +1932,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1983738561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 43842735177367979, guid: 8412ac030efe4cf47b919b98f4064d77, type: 3}
+  m_PrefabInstance: {fileID: 7402252020668266019}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f75297cb9afff34498746f85d7b9014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2047985030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5917648191847246243, guid: 8412ac030efe4cf47b919b98f4064d77, type: 3}

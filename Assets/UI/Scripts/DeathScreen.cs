@@ -17,10 +17,10 @@ public class DeathScreen : MonoBehaviour
 
         subheaderMessages = new List<string>
         {
-            new("don't worry, it's ok, don't feel bad, this is a safe space and we don't judge your skill issue"),
-            new("oof, that looks like it hurt"),
-            new("git gud scrub\n(respectfully)"),
-            new("me when the")
+            "don't worry, it's ok, don't feel bad, this is a safe space and we don't judge your skill issue",
+            "oof, that looks like it hurt",
+            "git gud scrub\n(respectfully)",
+            "me when the"
         };
     }
 
