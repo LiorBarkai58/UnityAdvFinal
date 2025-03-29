@@ -144,7 +144,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -243,10 +243,5 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 0}
   mixer: {fileID: 24100000, guid: 45c47829b2cd12d4583cfeec20f8807b, type: 2}
-  SFXLibrary:
-  - {fileID: 8300000, guid: 2d7e89df758d4b946bd3310f9b7cf8b7, type: 3}
-  - {fileID: 8300000, guid: 4a7d61cc7a6c2ad42a15d8e5e6eb1456, type: 3}
-  - {fileID: 8300000, guid: b7ba40517a114744d94a9d82a993198c, type: 3}
-  - {fileID: 8300000, guid: 2fe82064f2adfe34ba01efd8ba8cf605, type: 3}
-  - {fileID: 8300000, guid: bfba4ff394f9c8d4cbf644adb1405031, type: 3}
-  - {fileID: 8300000, guid: c2e142fea27094b40b433654f184fed7, type: 3}
+  audioSource: {fileID: 4219792684581593789}
+  SFXList: []
