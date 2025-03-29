@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections;
 
 
 public class EnemyManager : MonoBehaviour {
@@ -22,8 +22,8 @@ public class EnemyManager : MonoBehaviour {
         OnDeath?.Invoke(this);
         movement.canMove = false;
         animator.SetTrigger(Death);
-        Destroy(gameObject, 5);
-       // gameObject.SetActive(false);
+        StartCoroutine(Delay());
+        gameObject.SetActive(false);
     }
 
     private void OnValidate()
@@ -31,6 +31,11 @@ public class EnemyManager : MonoBehaviour {
         if(!combatManager){
             combatManager = gameObject.GetComponentInChildren<EnemyCombatManager>();
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(4);;
     }
 
 }
