@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Stats {
     AttackSpeed,
@@ -12,8 +13,14 @@ public enum Stats {
 public class PlayerStats : MonoBehaviour {
      [SerializeField] private DefaultStats defaultStats; // Reference to the ScriptableObject
 
+     [SerializeField] private StatUpgrades statUpgrades;
+
     private Dictionary<Stats, float> baseStats = new Dictionary<Stats, float>();
+
+    public Dictionary<Stats, float> BaseStats => baseStats;
     private Dictionary<Stats, float> modifiers = new Dictionary<Stats, float>();
+
+    public event UnityAction OnStatsUpdated;
 
     public void Initialize()
     {
@@ -44,10 +51,18 @@ public class PlayerStats : MonoBehaviour {
     public void AddModifier(Stats stat, float value)
     {
         modifiers[stat] += value;
+        OnStatsUpdated?.Invoke();
     }
 
     public void RemoveModifier(Stats stat, float value)
     {
         modifiers[stat] -= value;
+    }
+
+    public void UpgradeStat(Stats stat){
+        if(modifiers.ContainsKey(stat)){
+            modifiers[stat] += statUpgrades.GetStatIncrease(stat);
+            OnStatsUpdated?.Invoke();
+        }
     }
 }
