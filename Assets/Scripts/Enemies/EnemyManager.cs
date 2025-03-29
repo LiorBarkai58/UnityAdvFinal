@@ -24,9 +24,6 @@ public class EnemyManager : MonoBehaviour {
 
     private void HandleDeath(CombatManager combatManager){
         OnDeath?.Invoke(this);
-        movement.canMove = false;
-        animator.SetTrigger(Death);
-        StartCoroutine(Delay());
         gameObject.SetActive(false);
     }
 
@@ -37,9 +34,5 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
-    IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(4);;
-    }
 
 }
