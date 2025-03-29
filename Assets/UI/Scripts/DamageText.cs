@@ -6,6 +6,8 @@ public class DamageText : MonoBehaviour
     private Vector3 Offset = new Vector3(0, 1.5f, 0);
     public Vector3 RandomIntensity = new Vector3(0.5f, 0, 0);
 
+    [SerializeField] private Color critColor;
+
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -14,4 +16,6 @@ public class DamageText : MonoBehaviour
             Random.Range(-RandomIntensity.y, RandomIntensity.y),
             Random.Range(-RandomIntensity.z, RandomIntensity.z));
     }
+
+
 }
