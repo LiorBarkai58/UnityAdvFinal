@@ -21,7 +21,7 @@
     "_unsavedChangesAction": 0,
     "_tempCollidersAction": 1,
     "_paletteManager": {
-        "_selectedPaletteIdx": 5,
+        "_selectedPaletteIdx": 0,
         "_selectedBrushIdx": -1,
         "_showBrushName": false,
         "_viewList": false,
@@ -469,7 +469,8 @@
                     "MainCamera",
                     "Player",
                     "GameController",
-                    "Enemy"
+                    "Enemy",
+                    "Drops"
                 ],
                 "_slopeFilter": {
                     "_v1": 0.0,
@@ -6570,7 +6571,8 @@
                     "MainCamera",
                     "Player",
                     "GameController",
-                    "Enemy"
+                    "Enemy",
+                    "Drops"
                 ]
             }
         ],
@@ -7288,7 +7290,7 @@
             },
             "_origin": {
                 "x": 0.0,
-                "y": 23.11443328857422,
+                "y": 24.40384864807129,
                 "z": 0.0
             },
             "_rotation": {
