@@ -15,11 +15,10 @@ public class RuneCircle : Ability
         if(enemiesInRange.Count == 0) return false;
 
         // Create a copy of the list to iterate over, different abilities can kill an enemy during the iteration and change the original list
-        List<CombatManager> enemiesSnapshot = new List<CombatManager>(enemiesInRange);
-
-        foreach (CombatManager enemy in enemiesSnapshot)
+        for (int i = enemiesInRange.Count - 1; i >= 0; i--)
         {
-            if(enemy) enemy.TakeDamage(new DamageArgs { Damage = this.Damage * _damageModifier });
+            if (enemiesInRange[i] != null)
+                enemiesInRange[i].TakeDamage(new DamageArgs { Damage = this.Damage * _damageModifier });
         }
         return true;
     }
