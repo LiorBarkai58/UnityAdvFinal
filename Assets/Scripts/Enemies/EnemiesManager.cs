@@ -37,10 +37,24 @@ public class EnemiesManager : MonoBehaviour {
                 EnemyManager currentEnemy = enemyPool.GetEnemy();
                 enemies.Add(currentEnemy);
                 currentEnemy.OnDeath += HandleEnemyDeath;
+                currentEnemy.transform.position = GetSpawnPosition();
                 currentEnemy.gameObject.SetActive(true);
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(SpawnInterval);
         }
     }
+
+    private Vector3 GetSpawnPosition()
+{
+    float spawnRadius = 10f; // range around the player
+    float spawnHeight = 20f; // spawn height above the player
+
+    float angle = Random.Range(0, Mathf.PI * 2);
+    float xOffset = Mathf.Cos(angle) * spawnRadius;
+    float zOffset = Mathf.Sin(angle) * spawnRadius;
+
+    Vector3 playerPos = playerTransform.PlayersTransform.position;
+    return new Vector3(playerPos.x + xOffset, playerPos.y + spawnHeight, playerPos.z + zOffset);
+}
 }
