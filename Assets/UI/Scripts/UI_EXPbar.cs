@@ -12,10 +12,12 @@ public class UI_EXPbar : UI_ProgressBar {
           playerEXP.OnEXPChange += SetFillAmount;
           playerEXP.OnLevelUp += UpdateLevel;  
         } 
+        else Debug.LogWarning("Missing playerEXP reference in killcounter");
+
         
     }
 
     private void UpdateLevel(){
-        levelText.SetText($"Lvl.{playerEXP.Level}");
+        if(levelText) levelText.SetText($"Lvl.{playerEXP.Level}");
     }
 }
