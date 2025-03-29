@@ -23,7 +23,9 @@ public class DeathScreen : MonoBehaviour
             "git gud scrub\n(respectfully)",
             "me when the",
             "a.k.a. the sweet release",
-            "true failure comes when you stop trying"
+            "true failure comes when you stop trying",
+            "the only way to win is to fight",
+            "have you tried dookim yet? i hear it's fun"
         };
     }
 
