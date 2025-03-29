@@ -28,7 +28,7 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.PlayersTransform.position);
 
-        if (distanceToPlayer <= attackData.Range && canAttack)
+        if (distanceToPlayer <= attackData.Range && isPlayerInCollider && canAttack)
         {
             canAttack = false;
             StartAttack();
@@ -53,7 +53,12 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         GameObject currentAttackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
         Destroy(currentAttackEffect, 1);
-        ApplyDamage();
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.PlayersTransform.position);
+        if (distanceToPlayer <= attackData.Range)
+        {
+            ApplyDamage();
+        }
+
 
     }
     public void OnAttackEnd() //animation event
