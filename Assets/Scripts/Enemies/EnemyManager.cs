@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections;
 
 
 public class EnemyManager : MonoBehaviour {
@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour {
 
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
+    [SerializeField] private EnemyMovement movement;
     
     public event UnityAction<EnemyManager> OnDeath;
 
@@ -17,10 +18,16 @@ public class EnemyManager : MonoBehaviour {
         combatManager.OnDeath += HandleDeath;
     }
 
+    private void OnEnable(){
+        combatManager.Initialize();
+    }
+
     private void HandleDeath(CombatManager combatManager){
-        gameObject.SetActive(false);
         OnDeath?.Invoke(this);
+        movement.canMove = false;
         animator.SetTrigger(Death);
+        StartCoroutine(Delay());
+        gameObject.SetActive(false);
     }
 
     private void OnValidate()
@@ -28,6 +35,11 @@ public class EnemyManager : MonoBehaviour {
         if(!combatManager){
             combatManager = gameObject.GetComponentInChildren<EnemyCombatManager>();
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(4);;
     }
 
 }

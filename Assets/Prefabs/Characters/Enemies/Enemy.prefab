@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 389579794996366771}
   combatManager: {fileID: 8378416862651298449}
+  movement: {fileID: 27601172201498688}
 --- !u!114 &27601172201498688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   animator: {fileID: 389579794996366771}
   DisableMovement: 0
-  isAttacking: 1
+  canMove: 1
 --- !u!95 &389579794996366771
 Animator:
   serializedVersion: 7
@@ -374,7 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808aa63087fffaf45a760fe7f97ed88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &7591689174225484210
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,8 +479,7 @@ MonoBehaviour:
   movement: {fileID: 27601172201498688}
   attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
   triggerHandler: {fileID: 5337241646217487129}
-  attackRange: 20
-  attackCooldown: 3
+  attackEffect: {fileID: 0}
 --- !u!1 &8004559711415321507
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 4375607318464734523}
   combatData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
+  damageNumberPrefab: {fileID: 1539922242145635407, guid: fa65188dee063d640ab78242a6174d7a, type: 3}
+  experienceShardPrefab: {fileID: 2228254934510376572, guid: 00c062209754bd348a12794739d51162, type: 3}
 --- !u!1001 &3949630569348403358
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,7 +7,11 @@ public class CombatManager : MonoBehaviour
 
     protected float currentHealth = 0;
 
-    public float CurrentHealth => currentHealth;
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set { currentHealth = value; }
+    }
 
     protected float currentMaxHealth = 0;
 
@@ -19,20 +23,29 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        UpdateHealthBar();
+
     }
     public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         OnTakeDamage?.Invoke(damageArgs);
         if(currentHealth <= 0){
-            OnDeath?.Invoke(this);
+            HandleDeath();
         }
-        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        UpdateHealthBar();
     }
 
     public void RestoreHealth(float Health){
         currentHealth = Mathf.Clamp(currentHealth + Health, 0, currentMaxHealth);
-        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        UpdateHealthBar();
+    }
+
+    protected virtual void HandleDeath(){
+        OnDeath?.Invoke(this);
+    }
+
+    protected void UpdateHealthBar(){
+        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
 
     
