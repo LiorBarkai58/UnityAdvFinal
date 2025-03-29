@@ -658,11 +658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9203789447263378813, guid: 72c8ef03a4ea0ec4d8be7852eb40f7c7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -6.799988
+      value: -6.800049
       objectReference: {fileID: 0}
     - target: {fileID: 9203789447263378813, guid: 72c8ef03a4ea0ec4d8be7852eb40f7c7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.299988
+      value: -10.300049
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -675,6 +675,11 @@ PrefabInstance:
       addedObject: {fileID: 7900763089589134652}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c8ef03a4ea0ec4d8be7852eb40f7c7, type: 3}
+--- !u!1 &2325583508923368113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522167762964833575, guid: 72c8ef03a4ea0ec4d8be7852eb40f7c7, type: 3}
+  m_PrefabInstance: {fileID: 1200034521533884310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4022278826007518985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2843284576573028511, guid: 72c8ef03a4ea0ec4d8be7852eb40f7c7, type: 3}
@@ -773,9 +778,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6839855669251438095, guid: 5487ff40c379cfa4e9bc8478e078dbe1, type: 3}
+      propertyPath: hudCanvas
+      value: 
+      objectReference: {fileID: 2325583508923368113}
     - target: {fileID: 8764595895664193707, guid: 5487ff40c379cfa4e9bc8478e078dbe1, type: 3}
       propertyPath: m_Name
       value: DeathCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764595895664193707, guid: 5487ff40c379cfa4e9bc8478e078dbe1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
