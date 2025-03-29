@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: movementData
       value: 
       objectReference: {fileID: 11400000, guid: 581fd0e84b695434d9c790846c2e7076, type: 2}
+    - target: {fileID: 7092230964611589579, guid: 91ff4350b099d9f49b544cdda2dcccdd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.14
+      objectReference: {fileID: 0}
     - target: {fileID: 7476023790705720078, guid: 91ff4350b099d9f49b544cdda2dcccdd, type: 3}
       propertyPath: attackData
       value: 

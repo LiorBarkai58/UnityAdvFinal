@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour {
 
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
+    [SerializeField] private EnemyMovement movement;
     
     public event UnityAction<EnemyManager> OnDeath;
 
@@ -18,9 +19,11 @@ public class EnemyManager : MonoBehaviour {
     }
 
     private void HandleDeath(CombatManager combatManager){
-        gameObject.SetActive(false);
         OnDeath?.Invoke(this);
+        movement.canMove = false;
         animator.SetTrigger(Death);
+        Destroy(gameObject, 5);
+       // gameObject.SetActive(false);
     }
 
     private void OnValidate()

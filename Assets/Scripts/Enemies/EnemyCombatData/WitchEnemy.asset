@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b133f2c71343526408604187f36d34f9, type: 3}
-  m_Name: BossEnemy
+  m_Name: WitchEnemy
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  baseDamage: 30
+  maxHealth: 17
+  baseDamage: 0
   takeKnockback: 0
-  cooldown: 4
-  range: 10
+  cooldown: 1
+  range: 20
