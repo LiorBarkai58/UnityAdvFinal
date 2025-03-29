@@ -64,10 +64,13 @@ public class LevelupManager : MonoBehaviour {
 
     private void HandleAbilityUpgrade(Ability ability){
         ability.UpgradeAbility();
+        Time.timeScale = 1;
     }
 
     private void HandleStatUpgrade(Stats stat){
         OnStatUpgrade?.Invoke(stat);
+        Time.timeScale = 1;
+
     }
 
 

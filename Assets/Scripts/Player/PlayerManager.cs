@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -56,6 +57,11 @@ public class PlayerManager : MonoBehaviour {
     }
 
     private void HandleLevelUp(){
+        StartCoroutine(LevelupSequence());
+    }
+    private IEnumerator LevelupSequence(){
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.5f);
         levelupManager.gameObject.SetActive(true);
         levelupManager.SetupLevel(abilityManager.Abilities, playerStats.BaseStats.Keys.ToList());
     }
