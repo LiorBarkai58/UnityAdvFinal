@@ -33,11 +33,21 @@ public class PlayerExperience : MonoBehaviour {
         _currentEXP += Mathf.Max(exp * _gainMultiplier, 0);//Make sure you can't take away exp
         CheckForLevelup();
     }
+    private void HandleShard(ExperienceShard shard){
+        if(shard){
+            IncreaseEXP(shard.EXPValue);
+            shard.OnArrival -= HandleShard;
+            Destroy(shard.gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other){
-
-    }
-    private void OnTriggerExit(Collider other){
-        
+        if(other.CompareTag("ExpShard")){
+            ExperienceShard current = other.gameObject.GetComponent<ExperienceShard>();
+            if(current){
+                current.SetTarget(transform);
+                current.OnArrival += HandleShard;
+            }
+        }
     }
 }
