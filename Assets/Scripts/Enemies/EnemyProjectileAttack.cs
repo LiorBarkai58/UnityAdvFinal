@@ -4,16 +4,14 @@ using System.Collections;
 public class EnemyProjectileAttack : MonoBehaviour
 {
     private static readonly int IsMirrored = Animator.StringToHash("IsMirrored");
+    private static readonly int ProjectileAttack = Animator.StringToHash("ProjectileAttack");
 
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private EnemyProjectile FireBallPrefab;
     [SerializeField] private CombatData attackData;
-
-
-    [SerializeField] private float attackRange = 20;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private Transform projectilePos;
 
     private bool canAttack = true;
     private bool isMirrored;
@@ -27,7 +25,7 @@ public class EnemyProjectileAttack : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.PlayersTransform.position);
 
-        if (distanceToPlayer <= attackRange && canAttack)
+        if (distanceToPlayer <= attackData.Range && canAttack)
         {
             canAttack = false;
             StartAttack();
@@ -37,7 +35,7 @@ public class EnemyProjectileAttack : MonoBehaviour
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(attackData.Cooldown);
         canAttack = true;
     }
 
@@ -46,11 +44,15 @@ public class EnemyProjectileAttack : MonoBehaviour
     {
         isMirrored = !isMirrored;
         animator.SetBool(IsMirrored, isMirrored);
-        animator.SetLayerWeight(1, 100);
-        EnemyProjectile currentProjectile = Instantiate(FireBallPrefab, transform.position, Quaternion.identity);
+        animator.SetTrigger(ProjectileAttack);
+    }
+
+    public void OnAttack() //animatin event
+    {
+        EnemyProjectile currentProjectile = Instantiate(FireBallPrefab, projectilePos.position, Quaternion.identity);
         Vector3 direction = (playerTransform.PlayersTransform.position - transform.position).normalized;
         currentProjectile.SetDirection(direction);
-        animator.SetLayerWeight(1, 0);
+        animator.ResetTrigger(ProjectileAttack);
     }
 
 }

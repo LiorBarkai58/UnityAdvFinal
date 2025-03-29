@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsJumping = Animator.StringToHash("IsJumping");
     private static readonly int IsFalling = Animator.StringToHash("IsFalling");
-    private static readonly int Death = Animator.StringToHash("Death");
-
 
     [Header("Character References")]
     [SerializeField] private Rigidbody Rb;

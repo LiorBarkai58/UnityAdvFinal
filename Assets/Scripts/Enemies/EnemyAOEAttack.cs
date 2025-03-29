@@ -45,23 +45,20 @@ public class EnemyAOEAttack : MonoBehaviour
 
     private void StartAttack()
     {
-        movement.isAttacking = true;
+        movement.canMove = false;
         animator.SetTrigger(AOEAttack);
     }
 
     public void OnAttack() //animation event
     {
-        if (attackEffect)
-        {
-            attackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
-            Destroy(attackEffect, 1);
-        }
+        GameObject currentAttackEffect = Instantiate(attackEffect, transform.position, Quaternion.identity);
+        Destroy(currentAttackEffect, 1);
         ApplyDamage();
 
     }
     public void OnAttackEnd() //animation event
     {
-        movement.isAttacking = false;
+        movement.canMove = true;
         animator.ResetTrigger(AOEAttack);
     }
 
