@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3151471176949976417}
   - component: {fileID: 8023180114691080877}
   - component: {fileID: 7304412828515509112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InteractRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

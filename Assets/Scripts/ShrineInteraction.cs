@@ -4,16 +4,21 @@ public class ShrineInteraction : MonoBehaviour
 {
     [SerializeField] private GameObject frogModel;
     [SerializeField] private GameObject interationPrompt;
-    private PlayerController playerController;
+    private PlayerInteractions playerInteractions;
     private bool isInteractRadius;
+
+    private bool used = false;
 
     private void HandleInteraction()
     {
-        if (isInteractRadius)
+        if (isInteractRadius && !used)
         {
             Debug.Log("interaction event triggered");
-            //level up event
+            playerInteractions.OnLevelupShrine();
             interationPrompt.SetActive(false);
+            used = true;
+            playerInteractions.OnPlayerInteract -= HandleInteraction;
+
             Destroy(frogModel);
             Destroy(interationPrompt);
         }
@@ -21,30 +26,31 @@ public class ShrineInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !used)
         {
             isInteractRadius = true;
             interationPrompt.SetActive(true);
-            playerController = other.GetComponentInParent<PlayerController>();
+            playerInteractions = other.gameObject.GetComponent<PlayerInteractions>();
 
-            if (playerController)
+            if (playerInteractions)
             {
-                Debug.Log($"player controller set to {playerController}");
+                playerInteractions.OnPlayerInteract += HandleInteraction;
+
             }
 
-            Debug.Log($"player entered interaction radius {isInteractRadius}");
-            playerController.OnPlayerInteract += HandleInteraction;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !used)
         {
             isInteractRadius = false;
             Debug.Log("player left interaction radius");
-            interationPrompt.SetActive(false);
-            playerController.OnPlayerInteract -= HandleInteraction;
+            if(interationPrompt) interationPrompt.SetActive(false);
+            if(playerInteractions){
+                playerInteractions.OnPlayerInteract -= HandleInteraction;
+            }
         }
     }
 }
