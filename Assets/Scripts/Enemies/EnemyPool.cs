@@ -3,30 +3,51 @@ using UnityEngine;
 
 
 public class EnemyPool : MonoBehaviour {
-    [SerializeField] private EnemyManager EnemyPrefab;
+    [SerializeField] private List<EnemyManager> EnemyPrefabs;
 
     [SerializeField] private int AmountToPool = 10;
 
-    private Queue<EnemyManager> enemyPool = new Queue<EnemyManager>();
+    private List<EnemyManager> enemyPool = new List<EnemyManager>();
+
+    private float Timer = 0;
+
+    private int lastEnemyIndex = 0;
+    
+    private int maxEnemyTypes {get {return (int)Mathf.Clamp(Timer/30, 0, EnemyPrefabs.Count);}}
+
+    private void Update()
+    {
+        Timer += Time.deltaTime;
+
+        if(maxEnemyTypes+1 > lastEnemyIndex && lastEnemyIndex < EnemyPrefabs.Count){
+            AddEnemyToPool(lastEnemyIndex++);
+        }
+    }
 
     public void InitializePool()
     {
-        for(int i = 0; i < AmountToPool; i++){
-            EnemyManager currentEnemy = Instantiate(EnemyPrefab, transform);
-            currentEnemy.gameObject.SetActive(false);
-            enemyPool.Enqueue(currentEnemy);
-        }
+        AddEnemyToPool(lastEnemyIndex++);
     }
 
     public EnemyManager GetEnemy(){
         if(enemyPool.Count > 0){
-            return enemyPool.Dequeue();
+            EnemyManager enemyToReturn = enemyPool[Random.Range(0, enemyPool.Count)];
+            enemyPool.Remove(enemyToReturn);
+            return enemyToReturn;
         }
-        return Instantiate(EnemyPrefab, transform);
+        return Instantiate(EnemyPrefabs[Random.Range(0, enemyPool.Count)], transform);
     }
 
     public void ReleaseEnemy(EnemyManager enemy){
         enemy.gameObject.SetActive(false);
-        enemyPool.Enqueue(enemy);
+        enemyPool.Add(enemy);
+    }
+    private void AddEnemyToPool(int enemyIndex)
+    {
+        for(int i = 0; i < AmountToPool; i++){
+            EnemyManager currentEnemy = Instantiate(EnemyPrefabs[enemyIndex], transform);
+            currentEnemy.gameObject.SetActive(false);
+            enemyPool.Add(currentEnemy);
+        }
     }
 }
