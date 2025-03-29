@@ -16,6 +16,7 @@ public class PlayerCombatManager : CombatManager {
 
     public void UpdateMaxHealth(float maxHealth){
         float Difference = maxHealth - currentMaxHealth;
+        currentHealth = maxHealth;
         RestoreHealth(Difference);//Restore the amount that was added
         healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
