@@ -8,7 +8,6 @@ public class PlayerExperience : MonoBehaviour {
 
     private int _level = 1;
 
-    public int Level => _level;
 
     private float _gainMultiplier = 1;
     public float CurrentEXP
