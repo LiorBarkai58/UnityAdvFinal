@@ -89,15 +89,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.773165
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8681488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.514972
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751940868896697106, guid: 2b6e0d43f649de947bb1efa366ac5bc1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -203,7 +203,6 @@ MonoBehaviour:
   movement: {fileID: 6429325305412381570}
   attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
   triggerHandler: {fileID: 8152185921835689499}
-  attackWarningEffect: {fileID: 1049843463841446, guid: 9bf7aec720457c347b1e35a3c7034328, type: 3}
   attackEffect: {fileID: 1159970587636746, guid: 9ef207563109813488d640a0d102c627, type: 3}
 --- !u!4 &3071527912229442458 stripped
 Transform:
