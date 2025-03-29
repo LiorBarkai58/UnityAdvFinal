@@ -26,6 +26,7 @@ public class CombatManager : MonoBehaviour
         UpdateHealthBar();
 
     }
+
     public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         OnTakeDamage?.Invoke(damageArgs);
@@ -37,11 +38,6 @@ public class CombatManager : MonoBehaviour
 
     public void RestoreHealth(float Health){
         currentHealth = Mathf.Clamp(currentHealth + Health, 0, currentMaxHealth);
-        UpdateHealthBar();
-    }
-
-    public void LoadHealth()
-    {
         UpdateHealthBar();
     }
 

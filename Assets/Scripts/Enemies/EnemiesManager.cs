@@ -16,6 +16,11 @@ public class EnemiesManager : MonoBehaviour {
 
     private int KillCounter = 0;
 
+    public int KillCount
+    {
+        get => KillCounter; set { KillCounter = value; }
+    }
+
     public event UnityAction<int> OnKillUpdated;
     void Start()
     {

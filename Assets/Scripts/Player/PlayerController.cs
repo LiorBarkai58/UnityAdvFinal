@@ -50,6 +50,35 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SavePlayerState;
+        SaveGameManager.OnLoad += LoadPlayerState;
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SavePlayerState;
+        SaveGameManager.OnLoad -= LoadPlayerState;
+    }
+
+    private void SavePlayerState(SerializedSaveGame saveData)
+    {
+        saveData.playerPositionX = transform.position.x;
+        saveData.playerPositionY = transform.position.y;
+        saveData.playerPositionZ = transform.position.z;
+
+        saveData.playerRotationX = transform.rotation.eulerAngles.x;
+        saveData.playerRotationY = transform.rotation.eulerAngles.y;
+        saveData.playerRotationZ = transform.rotation.eulerAngles.z;
+    }
+
+    private void LoadPlayerState(SerializedSaveGame saveData)
+    {
+        transform.position = new Vector3(saveData.playerPositionX, saveData.playerPositionY, saveData.playerPositionZ);
+        transform.eulerAngles = new Vector3(saveData.playerRotationX, saveData.playerRotationY, saveData.playerRotationZ);
+    }
+
     private bool GroundCheck()
     {
         RaycastHit hit;

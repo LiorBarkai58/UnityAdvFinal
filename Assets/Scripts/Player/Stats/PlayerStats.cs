@@ -42,6 +42,42 @@ public class PlayerStats : MonoBehaviour {
             modifiers[stat] = 0f;
         }
     }
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SaveStats;
+        SaveGameManager.OnLoad += LoadStats;
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SaveStats;
+        SaveGameManager.OnLoad -= LoadStats;
+    }
+
+    private void SaveStats(SerializedSaveGame saveData)
+    {
+        saveData.stats.Clear();
+        foreach (var stat in modifiers)
+        {
+            saveData.stats.Add(new SerializedStat
+            {
+                statType = stat.Key,
+                statModifier = stat.Value
+            });
+        }
+    }
+
+    private void LoadStats(SerializedSaveGame saveData)
+    {
+        foreach (var savedStat in saveData.stats)
+        {
+            if (modifiers.ContainsKey(savedStat.statType))
+            {
+                modifiers[savedStat.statType] = savedStat.statModifier;
+            }
+        }
+        OnStatsUpdated?.Invoke();
+    }
     public float GetStatModifier(Stats stat)
     {
         return modifiers.ContainsKey(stat) ? modifiers[stat] : 0f;

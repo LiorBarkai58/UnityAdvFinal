@@ -11,7 +11,24 @@ public class PlayerCombatManager : CombatManager {
 
     private void OnEnable()
     {
+        SaveGameManager.OnSave += OnSave;
+        SaveGameManager.OnLoad += OnLoad;
         healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+    }
+    private void OnDisable()
+    {
+        SaveGameManager.OnLoad -= OnLoad;
+        SaveGameManager.OnSave -= OnLoad;
+    }
+
+    private void OnLoad(SerializedSaveGame saveData)
+    {
+        currentHealth = saveData.playerHP;
+    }
+
+    private void OnSave(SerializedSaveGame saveData)
+    {
+        saveData.playerHP = currentHealth;
     }
 
     public void UpdateMaxHealth(float maxHealth){

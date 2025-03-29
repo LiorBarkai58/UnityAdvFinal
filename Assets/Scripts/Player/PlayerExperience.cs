@@ -31,6 +31,30 @@ public class PlayerExperience : MonoBehaviour {
 
     public event UnityAction<float, float> OnEXPChange;//Current exp/ Current requirement
 
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SaveXPAndLevel;
+        SaveGameManager.OnSave += LoadXPAndLevel;
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SaveXPAndLevel;
+        SaveGameManager.OnLoad -= LoadXPAndLevel;
+    }
+
+    private void SaveXPAndLevel(SerializedSaveGame saveData)
+    {
+        saveData.currentEXP = _currentEXP;
+        saveData.level = _level;
+    }
+
+    private void LoadXPAndLevel(SerializedSaveGame saveData)
+    {
+        _currentEXP = saveData.currentEXP;
+        saveData.level = _level;
+    }
+
     public void setMultiplier(float gainMultiplier){
         _gainMultiplier = gainMultiplier;
     }
@@ -56,10 +80,6 @@ public class PlayerExperience : MonoBehaviour {
         CheckForLevelup();
     }
 
-    public void LoadXP(float exp)
-    {
-        IncreaseEXP(exp);
-    }
     private void HandleShard(ExperienceShard shard){
         if(shard){
             IncreaseEXP(shard.EXPValue);
