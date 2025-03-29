@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class FireStaff : Ability
 {
     [SerializeField] private Projectile FireBallPrefab;
@@ -10,7 +9,6 @@ public class FireStaff : Ability
     private List<CombatManager> enemiesInRange = new List<CombatManager>();
 
     private int _ProjectileCount = 1;
-
 
     public override bool AbilityLogic()
     {

@@ -1,13 +1,14 @@
 using UnityEngine;
 
-
-
 public abstract class Ability : MonoBehaviour {
 
     [SerializeField] private float Cooldown;
     private float elapsedCooldown = 0;
 
     private bool onCooldown = false;
+
+    public int AbilityID => GetType().Name.GetHashCode();
+
     protected int _level = 1;
 
     public int Level => _level;
@@ -42,5 +43,9 @@ public abstract class Ability : MonoBehaviour {
         _level++;
     }
 
-    
+    public virtual void ResetLevel()
+    {
+        _level = 1;
+    }
+
 }

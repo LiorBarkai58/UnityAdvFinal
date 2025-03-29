@@ -6,6 +6,9 @@ public class Timer : MonoBehaviour
     public   TextMeshProUGUI _timerText;
     private float _elapsedTime;
 
+    public float ElapsedTime
+    { get => _elapsedTime; set { _elapsedTime = value; } }
+
 
     void Update()
     {

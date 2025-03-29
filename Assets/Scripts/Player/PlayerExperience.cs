@@ -55,6 +55,11 @@ public class PlayerExperience : MonoBehaviour {
         _currentEXP += Mathf.Max(exp * _gainMultiplier, 0);//Make sure you can't take away exp
         CheckForLevelup();
     }
+
+    public void LoadXP(float exp)
+    {
+        IncreaseEXP(exp);
+    }
     private void HandleShard(ExperienceShard shard){
         if(shard){
             IncreaseEXP(shard.EXPValue);

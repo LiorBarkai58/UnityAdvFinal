@@ -15,4 +15,9 @@ public class KillCounter : MonoBehaviour {
     private void UpdateCounter(int currentKills){
         killCounter.SetText(currentKills.ToString());
     }
+
+    public void LoadKills(int currentKills)
+    {
+        UpdateCounter(currentKills);
+    }
 }

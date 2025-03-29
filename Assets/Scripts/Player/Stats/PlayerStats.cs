@@ -42,7 +42,14 @@ public class PlayerStats : MonoBehaviour {
             modifiers[stat] = 0f;
         }
     }
-
+    public float GetStatModifier(Stats stat)
+    {
+        return modifiers.ContainsKey(stat) ? modifiers[stat] : 0f;
+    }
+    public void SetModifier(Stats stat, float value)
+    {
+        modifiers[stat] = value;
+    }
     public float GetStatValue(Stats stat)
     {
         return baseStats[stat] * (1f + modifiers[stat]);
@@ -63,6 +70,13 @@ public class PlayerStats : MonoBehaviour {
         if(modifiers.ContainsKey(stat)){
             modifiers[stat] += statUpgrades.GetStatIncrease(stat);
             OnStatsUpdated?.Invoke();
+        }
+    }
+    public void ResetModifiers()
+    {
+        foreach (Stats stat in System.Enum.GetValues(typeof(Stats)))
+        {
+            modifiers[stat] = 0f;
         }
     }
 }
