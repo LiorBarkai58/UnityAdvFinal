@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 
 
 public abstract class Ability : MonoBehaviour {
 
     [SerializeField] private float Cooldown;
+    [SerializeField] private List<AudioClip> soundEffectPool;
     private float elapsedCooldown = 0;
 
     private bool onCooldown = false;
@@ -32,6 +34,11 @@ public abstract class Ability : MonoBehaviour {
         if(!onCooldown){
             if(AbilityLogic()){
                 onCooldown = true;
+                if (soundEffectPool.Count > 0)
+                {
+                    AudioClip soundEffect = soundEffectPool[Random.Range(0, soundEffectPool.Count)];
+                    AudioManager.Instance.PlaySFX(soundEffect);
+                }
             }
         }
     }

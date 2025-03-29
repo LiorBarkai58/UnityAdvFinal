@@ -47,6 +47,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        AudioManager.Instance.ResetMixer();
         StartCoroutine(LoadScene(sceneIndex));
     }
 
