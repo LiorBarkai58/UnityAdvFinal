@@ -10,7 +10,7 @@ public class ExperienceShard : MonoBehaviour {
 
     private float DistanceThreshold = 0.05f;
 
-    private float expValue = 0;
+    private float expValue = 10;
 
     public float EXPValue => expValue;
 
