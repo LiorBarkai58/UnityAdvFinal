@@ -54,18 +54,15 @@ public class LevelLoader : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
-        _loaderCanvas.SetActive(true);
         while (!operation.isDone)
         {
+            _loaderCanvas.SetActive(true);
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             _progressBar.SetFillAmount(progress, 0.9f);
             progressText.SetText($"loading: {progress * 100f}%");
 
             yield return null;
         }
-        if (operation.isDone)
-        {
-            _loaderCanvas.SetActive(false);
-        }
+        _loaderCanvas.SetActive(false);
     }
 }
