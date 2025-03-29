@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9c1cce21648984bab83922fd9fb201, type: 3}
-  m_Name: OrcMovement
+  m_Script: {fileID: 11500000, guid: b133f2c71343526408604187f36d34f9, type: 3}
+  m_Name: BossEnemy
   m_EditorClassIdentifier: 
-  speed: 3
-  jumpForce: 0
+  maxHealth: 1
+  baseDamage: 30
+  takeKnockback: 0
+  cooldown: 4
+  range: 10

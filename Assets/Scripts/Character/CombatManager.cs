@@ -7,7 +7,11 @@ public class CombatManager : MonoBehaviour
 
     protected float currentHealth = 0;
 
-    public float CurrentHealth => currentHealth;
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set { currentHealth = value; }
+    }
 
     protected float currentMaxHealth = 0;
 

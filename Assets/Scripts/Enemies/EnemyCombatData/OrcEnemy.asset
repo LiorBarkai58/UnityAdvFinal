@@ -15,5 +15,5 @@ MonoBehaviour:
   maxHealth: 30
   baseDamage: 4
   takeKnockback: 0
-  cooldown: 5
-  range: 20
+  cooldown: 3
+  range: 8

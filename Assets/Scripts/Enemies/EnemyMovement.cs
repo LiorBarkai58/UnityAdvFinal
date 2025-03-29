@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
     [Header("Debug")]
     [SerializeField] private bool DisableMovement = false;
 
-   public bool isAttacking;
+   public bool canMove = true;
 
     private void FixedUpdate()
     {
@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour {
         direction.y = 0;
 
         Vector3 nextPosition = transform.position + direction * movementData.Speed * Time.fixedDeltaTime;
-        if(!isAttacking )
+        if(canMove)
         {
             Rb.MovePosition(nextPosition);
         }

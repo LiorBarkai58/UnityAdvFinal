@@ -40,7 +40,7 @@ public abstract class EnemyAttack : MonoBehaviour
 
     protected virtual void StartAttack()
     {
-        movement.isAttacking = true;
+        movement.canMove = false;
         animator.SetTrigger(Attack);
     }
 
@@ -50,7 +50,7 @@ public abstract class EnemyAttack : MonoBehaviour
     {
         Debug.Log("Attackendevent");
         ApplyDamage();
-        movement.isAttacking = false;
+        movement.canMove = true;
         animator.ResetTrigger(Attack);
     }
 }

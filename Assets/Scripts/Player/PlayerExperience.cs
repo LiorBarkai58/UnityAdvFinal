@@ -8,9 +8,20 @@ public class PlayerExperience : MonoBehaviour {
 
     private int _level = 1;
 
-    public int Level => _level;
 
     private float _gainMultiplier = 1;
+    public float CurrentEXP
+    {
+        get => _currentEXP;
+        set { _currentEXP = value; }
+    }
+    public int Level
+    {
+        get => _level;
+        set { _level = value; }
+    }
+
+
 
 
     [SerializeField] private int LinearGrowth = 7;
