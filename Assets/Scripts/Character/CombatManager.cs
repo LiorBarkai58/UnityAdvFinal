@@ -40,7 +40,9 @@ public class CombatManager : MonoBehaviour
         UpdateHealthBar();
     }
 
-    protected virtual void HandleDeath(){
+    protected virtual void HandleDeath()
+    {
+        Debug.Log("calling death event");
         OnDeath?.Invoke(this);
     }
 
