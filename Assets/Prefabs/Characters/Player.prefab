@@ -153,6 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 0.5
+  soundEffectPool:
+  - {fileID: 8300000, guid: 4a7d61cc7a6c2ad42a15d8e5e6eb1456, type: 3}
+  - {fileID: 8300000, guid: 0c630b9ade2c56249aaf3a225bf0d897, type: 3}
+  - {fileID: 8300000, guid: 6cfbcdbee950ede43adf2a355dc415d1, type: 3}
   Damage: 10
   effect: {fileID: 962114699279047561}
 --- !u!65 &8852073643311114369
@@ -606,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 0.5
+  soundEffectPool: []
   Damage: 3
 --- !u!1 &5621997998539142668
 GameObject:
@@ -653,6 +658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 3
+  soundEffectPool:
+  - {fileID: 8300000, guid: b7ba40517a114744d94a9d82a993198c, type: 3}
   FireBallPrefab: {fileID: 8647183588057173746, guid: 0e5456dd41ec76a45866754a634c107a, type: 3}
 --- !u!135 &457163529158859668
 SphereCollider:
@@ -723,6 +730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LinearGrowth: 7
   particles: {fileID: 2345440563876559870}
+  levelUp: {fileID: 8300000, guid: bfba4ff394f9c8d4cbf644adb1405031, type: 3}
+  pickupSFX: {fileID: 8300000, guid: 2fe82064f2adfe34ba01efd8ba8cf605, type: 3}
 --- !u!135 &3041304130414888566
 SphereCollider:
   m_ObjectHideFlags: 0
