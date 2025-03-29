@@ -12,7 +12,16 @@ public class LevelupManager : MonoBehaviour {
 
 
     public event UnityAction<Stats> OnStatUpgrade;
-    
+    private void OnEnable()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    private void OnDisable()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     public void Start()
     {
         foreach(AbilityCard card in abilityCards){
@@ -30,7 +39,7 @@ public class LevelupManager : MonoBehaviour {
         List<Stats> StatsCopy = new List<Stats>(stats);
 
         for(int i = 0; i< Mathf.Min(2, abilities.Count); i++){
-            Ability selectedAbility = AbilitiesCopy[Random.Range(0, AbilitiesCopy.Count-1)];
+            Ability selectedAbility = AbilitiesCopy[Random.Range(0, AbilitiesCopy.Count)];
 
             AbilitiesCopy.Remove(selectedAbility);
 
@@ -41,7 +50,7 @@ public class LevelupManager : MonoBehaviour {
 
         }
         for(int i = 0; i< Mathf.Min(2, stats.Count); i++){
-            Stats selectedStat = StatsCopy[Random.Range(0, StatsCopy.Count-1)];
+            Stats selectedStat = StatsCopy[Random.Range(0, StatsCopy.Count)];
 
             StatsCopy.Remove(selectedStat);
             

@@ -9,12 +9,17 @@ public class EnemyManager : MonoBehaviour {
 
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
+
     
     public event UnityAction<EnemyManager> OnDeath;
 
     private void Start()
     {
         combatManager.OnDeath += HandleDeath;
+    }
+
+    private void OnEnable(){
+        combatManager.Initialize();
     }
 
     private void HandleDeath(CombatManager combatManager){

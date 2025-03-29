@@ -5,9 +5,13 @@ public class EnemyCombatManager : CombatManager {
     [SerializeField] private CombatData combatData;
     [SerializeField] private TextMesh damageNumberPrefab;
 
-    private void OnEnable(){
+    [SerializeField] private ExperienceShard experienceShardPrefab;
+
+    public void Initialize(){
         currentMaxHealth = combatData.MaxHealth;
         currentHealth = combatData.MaxHealth;
+        UpdateHealthBar();
+
     }
 
     public override void TakeDamage(DamageArgs damageArgs)
@@ -22,5 +26,11 @@ public class EnemyCombatManager : CombatManager {
     {
         TextMesh damagePrefabClone = Instantiate(damageNumberPrefab, transform.position, Quaternion.identity, transform);
         damagePrefabClone.text = damageArgs.Damage.ToString();
+    }
+    protected override void HandleDeath()
+    {
+        base.HandleDeath();
+        ExperienceShard currentShard = Instantiate(experienceShardPrefab, transform.position, Quaternion.identity);
+        currentShard.SetEXP(combatData.EXPDrop);
     }
 }

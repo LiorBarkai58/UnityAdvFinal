@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemiesManager : MonoBehaviour {
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private EnemyPool enemyPool;
-    public List<EnemyManager> enemies = new List<EnemyManager>();//Will be made internally later but currently uses scene references
+    private List<EnemyManager> enemies = new List<EnemyManager>();
 
     [Header("Spawn Details")]
     [SerializeField] private int SpawnInterval = 10;

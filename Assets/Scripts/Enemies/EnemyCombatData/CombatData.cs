@@ -12,6 +12,8 @@ public class CombatData : ScriptableObject {
 
     [SerializeField] private float range;
 
+    [SerializeField] private float expDrop = 5;
+
 
     public float Range => range;
     public float Cooldown => cooldown;
@@ -21,4 +23,6 @@ public class CombatData : ScriptableObject {
     public float BaseDamage => baseDamage;
 
     public bool TakeKnockback => takeKnockback;
+
+    public float EXPDrop => expDrop;
 }
