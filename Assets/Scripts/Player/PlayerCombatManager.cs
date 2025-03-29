@@ -2,13 +2,22 @@ using UnityEngine;
 
 
 public class PlayerCombatManager : CombatManager {
-
+    private bool isLoaded = false;
     public void Initialize(float maxHealth)
     {
-        currentMaxHealth = maxHealth;
-        currentHealth = currentMaxHealth;
+        if (!isLoaded)
+        {
+            currentMaxHealth = maxHealth;
+            currentHealth = currentMaxHealth;
+        }
     }
-
+    private void Start()
+    {
+        if (SaveGameManager.Instance != null)
+        {
+            UpdateHealthBar();
+        }
+    }
     private void OnEnable()
     {
         SaveGameManager.OnSave += OnSave;
@@ -18,17 +27,23 @@ public class PlayerCombatManager : CombatManager {
     private void OnDisable()
     {
         SaveGameManager.OnLoad -= OnLoad;
-        SaveGameManager.OnSave -= OnLoad;
+        SaveGameManager.OnSave -= OnSave;
     }
-
     private void OnLoad(SerializedSaveGame saveData)
     {
-        currentHealth = saveData.playerHP;
-    }
+        Debug.Log($"Loading health: {saveData.playerHP}/{saveData.playerMaxHP}");
 
+        currentHealth = saveData.playerHP;
+        currentMaxHealth = saveData.playerMaxHP;
+        isLoaded = true;
+        Debug.Log($"After loading: {currentHealth}/{currentMaxHealth}");
+
+        UpdateHealthBar();
+    }
     private void OnSave(SerializedSaveGame saveData)
     {
         saveData.playerHP = currentHealth;
+        saveData.playerMaxHP = currentMaxHealth;
     }
 
     public void UpdateMaxHealth(float maxHealth){

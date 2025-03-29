@@ -46,7 +46,15 @@ public class CombatManager : MonoBehaviour
     }
 
     protected void UpdateHealthBar(){
-        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        if (healthBar)
+        {
+            Debug.Log($"Updating healthBar: {currentHealth}/{currentMaxHealth}");
+            healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        }
+        else
+        {
+            Debug.LogError("healthBar reference is null!");
+        }
     }
 
     

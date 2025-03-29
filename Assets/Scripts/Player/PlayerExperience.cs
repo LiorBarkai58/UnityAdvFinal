@@ -34,7 +34,7 @@ public class PlayerExperience : MonoBehaviour {
     private void OnEnable()
     {
         SaveGameManager.OnSave += SaveXPAndLevel;
-        SaveGameManager.OnSave += LoadXPAndLevel;
+        SaveGameManager.OnLoad += LoadXPAndLevel;
     }
 
     private void OnDisable()
@@ -52,7 +52,9 @@ public class PlayerExperience : MonoBehaviour {
     private void LoadXPAndLevel(SerializedSaveGame saveData)
     {
         _currentEXP = saveData.currentEXP;
-        saveData.level = _level;
+        _level = saveData.level;
+        OnEXPChange?.Invoke(_currentEXP, GetLevelupRequirement());
+        OnLevelUp?.Invoke();
     }
 
     public void setMultiplier(float gainMultiplier){

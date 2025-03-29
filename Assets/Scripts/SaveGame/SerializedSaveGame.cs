@@ -3,6 +3,7 @@ using UnityEngine;
 public class SerializedSaveGame
 {
     public float playerHP;
+    public float playerMaxHP;
     public float playerPositionX, playerPositionY, playerPositionZ;
     public float playerRotationX, playerRotationY, playerRotationZ;
     public int killCount;

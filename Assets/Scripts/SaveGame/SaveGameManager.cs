@@ -11,6 +11,21 @@ public class SaveGameManager : MonoBehaviour
     public static event Action<SerializedSaveGame> OnSave;
     public static event Action<SerializedSaveGame> OnLoad;
 
+    public static SaveGameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     [ContextMenu("Save")]
     
     public void SaveGame()

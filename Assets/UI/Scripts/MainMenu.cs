@@ -3,10 +3,28 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGameButton()
+    [SerializeField] private SaveGameManager saveGameManager;
+    public void NewGameButton()
     {
+        PlayerPrefs.SetInt("ShouldLoadGame", 0);
         LevelLoader.Instance.LoadLevel(1);
     }
+
+    public void LoadGameButton()
+    {
+        if (System.IO.File.Exists(Application.persistentDataPath + "/SaveData"))
+        {
+            PlayerPrefs.SetInt("ShouldLoadGame", 1);
+            LevelLoader.Instance.LoadLevel(2);
+        }
+        else
+        {
+            Debug.LogWarning("No save file found");
+
+        }
+    }
+
+
 
     public void QuitButton()
     {
