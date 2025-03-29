@@ -47,6 +47,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
+        if (SaveGameManager.Instance != null)
+        {
+            SaveGameManager.Instance.SaveGame();
+        }
         StartCoroutine(LoadScene(sceneIndex));
     }
 

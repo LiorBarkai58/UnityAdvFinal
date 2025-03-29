@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameButton()
     {
         PlayerPrefs.SetInt("ShouldLoadGame", 0);
+        saveGameManager.DeleteSaveData();
         LevelLoader.Instance.LoadLevel(1);
     }
 
@@ -15,7 +16,7 @@ public class MainMenu : MonoBehaviour
         if (System.IO.File.Exists(Application.persistentDataPath + "/SaveData"))
         {
             PlayerPrefs.SetInt("ShouldLoadGame", 1);
-            LevelLoader.Instance.LoadLevel(2);
+            LevelLoader.Instance.LoadLevel(1);
         }
         else
         {
@@ -27,7 +28,7 @@ public class MainMenu : MonoBehaviour
 
 
     public void QuitButton()
-    {
+    {   
         Application.Quit();
     }
 }

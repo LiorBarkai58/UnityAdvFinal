@@ -46,9 +46,4 @@ public class PauseMenu : MonoBehaviour
         IsGamePaused = false;
         LevelLoader.Instance.LoadLevel(0);
     }
-
-    public void SaveButton()
-    {
-
-    }
 }

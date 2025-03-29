@@ -26,6 +26,11 @@ public class SaveGameManager : MonoBehaviour
         }
     }
 
+    public void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
     [ContextMenu("Save")]
     
     public void SaveGame()
@@ -48,6 +53,16 @@ public class SaveGameManager : MonoBehaviour
 
         OnLoad?.Invoke(serializedSaveGame);
 
+    }
+
+    public void DeleteSaveData()
+    {
+        string savePath = Application.persistentDataPath + SAVE_FILE_NAME;
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            Debug.Log("Save file deleted");
+        }
     }
 
     private void SaveToJson()

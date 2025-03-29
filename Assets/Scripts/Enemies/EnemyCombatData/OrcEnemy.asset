@@ -16,4 +16,5 @@ MonoBehaviour:
   baseDamage: 4
   takeKnockback: 0
   cooldown: 3
-  range: 8
+  range: 2
+  expDrop: 5
