@@ -18,6 +18,9 @@ public abstract class Ability : MonoBehaviour {
 
     protected float _personalAttackSpeedMultiplier = 1;
 
+    protected List<CombatManager> enemiesInRange = new List<CombatManager>();
+
+
 
     //Attackspeed multiplier is a way to reduce the cooldown and increase the recharge rate of abilities
     public void AbilityUpdate(float AttackSpeedMultiplier = 1)//Ran by the ability manager and no personal update function
@@ -47,6 +50,35 @@ public abstract class Ability : MonoBehaviour {
 
     public virtual void UpgradeAbility(){
         _level++;
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy")){
+            CombatManager enemyCombat = other.GetComponent<CombatManager>();
+            if(enemyCombat){
+                enemiesInRange.Add(enemyCombat);
+                enemyCombat.OnDeath += HandleEnemyDeath;
+            }
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Enemy")){
+            CombatManager enemyCombat = other.GetComponent<CombatManager>();
+            if(enemyCombat && enemiesInRange.Contains(enemyCombat)){
+                enemiesInRange.Remove(enemyCombat);
+                enemyCombat.OnDeath -= HandleEnemyDeath;
+
+            }
+        }
+    }
+
+    private void HandleEnemyDeath(CombatManager enemy){
+        if(enemiesInRange.Contains(enemy)){
+            enemiesInRange.Remove(enemy);
+        }
     }
 
     
