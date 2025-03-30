@@ -24,7 +24,7 @@ public class PlayerCombatManager : CombatManager {
     {
         SaveGameManager.OnSave += OnSave;
         SaveGameManager.OnLoad += OnLoad;
-        healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
     }
     private void OnDisable()
     {

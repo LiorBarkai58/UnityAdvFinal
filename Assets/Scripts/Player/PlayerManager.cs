@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour {
         playerCombat.OnDeath += HandleDeath;
         playerStats.OnStatsUpdated += UpdateStats;
         playerExperience.OnLevelUp += HandleLevelUp;
-        levelupManager.OnStatUpgrade += HandleStatUpgrade;
+        if(levelupManager) levelupManager.OnStatUpgrade += HandleStatUpgrade;
     }
 
     private void OnValidate()

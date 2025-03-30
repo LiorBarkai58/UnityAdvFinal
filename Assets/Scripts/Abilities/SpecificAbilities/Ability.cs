@@ -41,7 +41,7 @@ public abstract class Ability : MonoBehaviour {
                 if (soundEffectPool.Count > 0)
                 {
                     AudioClip soundEffect = soundEffectPool[Random.Range(0, soundEffectPool.Count)];
-                    AudioManager.Instance.PlaySFX(soundEffect);
+                    if(AudioManager.Instance) AudioManager.Instance.PlaySFX(soundEffect);
                 }
             }
         }
