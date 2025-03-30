@@ -18,6 +18,10 @@ public class EnemyManager : MonoBehaviour {
         combatManager.OnDeath += HandleDeath;
     }
 
+    public void UpdateFunction(){
+        movement.UpdateFunction();
+    }
+
     private void OnEnable(){
         combatManager.Initialize();
         movement.canMove = true;

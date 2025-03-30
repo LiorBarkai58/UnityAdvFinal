@@ -45,6 +45,12 @@ public class EnemiesManager : MonoBehaviour {
         }
     }
 
+    private void FixedUpdate()
+    {
+        for(int i = 0; i < enemies.Count;i++){
+            enemies[i].UpdateFunction();
+        }
+    }
     private IEnumerator EnemySpawning(){
         while(true){
             for(int i = 0; i< AmountToSpawn; i++){

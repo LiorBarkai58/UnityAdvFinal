@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour {
 
    private float climbingMultiplier = 15;
 
-    private void FixedUpdate()
+    public void UpdateFunction()
     {
         if(DisableMovement) return;
         Vector3 direction = (playerTransform.PlayersTransform.position - transform.position).normalized;
