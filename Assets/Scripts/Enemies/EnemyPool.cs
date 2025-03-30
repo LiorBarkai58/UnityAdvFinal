@@ -31,6 +31,29 @@ public class EnemyPool : MonoBehaviour {
         AddEnemyToPool(lastEnemyIndex++);
     }
 
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SaveEnemyTimer;
+        SaveGameManager.OnLoad += LoadEnemyTimer;
+
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SaveEnemyTimer;
+        SaveGameManager.OnLoad -= LoadEnemyTimer;
+    }
+
+    private void SaveEnemyTimer(SerializedSaveGame saveData)
+    {
+        saveData.EnemyTimer = timer;
+    }
+
+    private void LoadEnemyTimer(SerializedSaveGame saveData)
+    {
+        timer = saveData.EnemyTimer;
+    }
+
     public EnemyManager GetEnemy(){
         if(enemyPool.Count > 0){
             EnemyManager enemyToReturn = enemyPool[Random.Range(0, enemyPool.Count)];

@@ -11,6 +11,8 @@ public class SerializedSaveGame
     public float currentEXP;
     public int level;
 
+    public float EnemyTimer;
+
     public List<SerializedAbility> abilities = new List<SerializedAbility>();
     public List<SerializedStat> stats = new List<SerializedStat>();
 }
