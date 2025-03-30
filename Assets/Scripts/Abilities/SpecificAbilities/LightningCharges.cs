@@ -7,8 +7,6 @@ public class LightningCharges : Ability
 {
     [SerializeField] private DamageZone lightningEffectPrefab;
 
-    private List<CombatManager> enemiesInRange = new List<CombatManager>();
-
     private int _zoneCount = 1;
 
 
