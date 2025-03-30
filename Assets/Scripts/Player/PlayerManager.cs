@@ -60,6 +60,7 @@ public class PlayerManager : MonoBehaviour {
     private void HandleDeath(CombatManager combatManager){
         animator.SetTrigger(Death);
         playerInput.enabled = false;
+        if(AudioManager.Instance) AudioManager.Instance.HandlePlayerDied();
     }
 
     private void UpdateStats(){

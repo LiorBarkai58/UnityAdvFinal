@@ -6,11 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private PlayerCombatManager player;
-    [SerializeField] private EnemyCombatManager enemy;
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private List<AudioClipData> SFXList;
 
     private void Awake()
     {
@@ -26,12 +23,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        player.OnDeath += HandlePlayerDied;
-    }
+    
 
-    private void HandlePlayerDied(CombatManager combatManager)
+    public void HandlePlayerDied()
     {
         mixer.SetFloat("BgmDistortion", 1f);
         mixer.SetFloat("BgmPitch", .80f);
@@ -51,12 +45,3 @@ public class AudioManager : MonoBehaviour
 
 }
 
-public enum SFXLibrary
-{
-    takeDamage,
-    levelUp,
-    expGained,
-    fireball,
-    aoeSpell,
-    slash
-}
