@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: dab532aa84204134aab77395707d97a3
+    path: Assets/Scenes/Menu.unity
+    guid: df7296dac2df41b47a033553d0d713af
+  - enabled: 1
+    path: Assets/Scenes/SpawnArea.unity
+    guid: 263abe41d1e93404192a4f06779c1c9f
   - enabled: 1
     path: Assets/Scenes/Environment.unity
     guid: a53804368954ecd458e797711bebe067
-  - enabled: 1
-    path: Assets/Scenes/SavaGameWork.unity
-    guid: d088f8fcae79bf549b25699c451062e1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c7e5f4b2f69f9784c865dc3f4f04446f, type: 3}
   m_UseUCBPForAssetBundles: 0
