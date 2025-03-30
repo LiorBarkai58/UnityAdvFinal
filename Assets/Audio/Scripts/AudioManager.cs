@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
     {
         mixer.SetFloat("BgmDistortion", 1f);
         mixer.SetFloat("BgmPitch", .80f);
-        mixer.SetFloat("BgmVolume", -50f);
+        mixer.SetFloat("BgmVolume", -60f);
     }
 
     public void PlaySFX(AudioClip audioClip)
