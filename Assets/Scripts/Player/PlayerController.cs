@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _InputDirection;
 
     private float ySpeed;
+    private float timeOfGround;
 
     private bool isJumping;
     private bool isGrounded;
@@ -44,9 +45,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        HandleJump();
         HandleMovement();
-        
+        HandleJump();  
     }
 
     private void OnEnable()
@@ -84,36 +84,44 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, out hit, 0.5f);
     }
 
-    private void Jump(){
-        if(isGrounded){
+    private void Jump()
+    {
+        if (isGrounded)
+        {
             isJumping = true;
+            isFalling = false; // Reset falling state
             Rb.linearVelocity = new Vector3(Rb.linearVelocity.x, movementData.JumpForce, Rb.linearVelocity.z);
+            isGrounded = false; // Ensure the player is considered off the ground
         }
     }
     private void HandleJump(){
+
         ySpeed = Rb.linearVelocity.y;
 
         if (GroundCheck())
         {
-            isGrounded = true;
-            isFalling = false;
-            isJumping = false;
+            if (!isJumping) // Reset only if not jumping
+            {
+                isGrounded = true;
+                isFalling = false;
+                timeOfGround = 0;
+            }
 
         }
         else
         {
             isGrounded= false;
-            if(isJumping && ySpeed < 0 || ySpeed > -2)
+            timeOfGround += Time.fixedDeltaTime;
+            if(isJumping && ySpeed < 0 || timeOfGround > 0.5)
             {
                 isFalling = true;
+                isJumping = false;
             }
         }
         if (animator)
         {
-            animator.SetBool(IsJumping, isGrounded);
-            animator.SetBool(IsFalling, isFalling);
             animator.SetBool(IsJumping, isJumping);
-
+            animator.SetBool(IsFalling, isFalling);
         }
     }
 

@@ -5,8 +5,6 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
-    private static readonly int Death = Animator.StringToHash("Death");
-
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
     [SerializeField] private EnemyMovement movement;

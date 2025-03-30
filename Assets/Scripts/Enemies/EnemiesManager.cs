@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class EnemiesManager : MonoBehaviour {
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private EnemyPool enemyPool;
+    [SerializeField] private GameObject explosion1;
+    [SerializeField] private GameObject explosion2;
     private List<EnemyManager> enemies = new List<EnemyManager>();
 
     [Header("Spawn Details")]
@@ -34,6 +36,13 @@ public class EnemiesManager : MonoBehaviour {
         enemies.Remove(enemy);
         KillCounter++;
         OnKillUpdated?.Invoke(KillCounter);
+
+        if (Random.value <= 0.4f)
+        {
+            GameObject explosionPrefab = Random.value < 0.5f ? explosion1 : explosion2;
+            GameObject explosion = Instantiate(explosionPrefab, enemy.transform.position, Quaternion.identity);
+            Destroy(explosion, 3f);
+        }
     }
 
     private IEnumerator EnemySpawning(){
