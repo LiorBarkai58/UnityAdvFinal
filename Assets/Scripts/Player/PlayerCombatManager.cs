@@ -9,6 +9,7 @@ public class PlayerCombatManager : CombatManager {
         {
             currentMaxHealth = maxHealth;
             currentHealth = currentMaxHealth;
+            UpdateHealthBar();
         }
     }
     private void Start()

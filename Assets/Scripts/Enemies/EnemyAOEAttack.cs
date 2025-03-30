@@ -14,7 +14,7 @@ public class EnemyAOEAttack : MonoBehaviour
 
     [SerializeField] private GameObject attackEffect;
 
-    private PlayerCombatManager playerCombat;
+    public PlayerCombatManager playerCombat;
 
     private bool isPlayerInCollider = false;
     private bool canAttack = true;
@@ -71,12 +71,10 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log(collision.name);
-            isPlayerInCollider = true;
             playerCombat = collision.GetComponent<PlayerCombatManager>();
-            if (playerCombat == null)
+            if (playerCombat)
             {
-                Debug.Log("playercombat null");
+                isPlayerInCollider = true;
             }
         }
     }
@@ -85,8 +83,12 @@ public class EnemyAOEAttack : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerInCollider = false;
-            playerCombat = null;
+            PlayerCombatManager currentCollider = collision.gameObject.GetComponent<PlayerCombatManager>();
+            if(playerCombat && currentCollider && currentCollider.gameObject == playerCombat.gameObject){
+                isPlayerInCollider = false;
+                playerCombat = null;
+            }
+            
         }
     }
 

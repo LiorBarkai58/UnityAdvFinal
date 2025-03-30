@@ -53,6 +53,7 @@ public class EnemiesManager : MonoBehaviour {
                 currentEnemy.OnDeath += HandleEnemyDeath;
                 currentEnemy.transform.position = GetSpawnPosition();
                 currentEnemy.gameObject.SetActive(true);
+                currentEnemy.SetMaxhpMultiplier(1 + enemyPool.Timer/60);
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(SpawnInterval);

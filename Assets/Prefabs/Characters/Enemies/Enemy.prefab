@@ -516,6 +516,7 @@ MonoBehaviour:
   attackData: {fileID: 11400000, guid: 3e9dd4a87bc534c4f874c4f0780c86aa, type: 2}
   triggerHandler: {fileID: 5337241646217487129}
   attackEffect: {fileID: 0}
+  playerCombat: {fileID: 0}
 --- !u!1 &8004559711415321507
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +654,7 @@ GameObject:
   - component: {fileID: 8356946718693844032}
   - component: {fileID: 1657187558790213390}
   - component: {fileID: 5337241646217487129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +721,7 @@ GameObject:
   - component: {fileID: 6740387203795546973}
   - component: {fileID: 8016056929107775343}
   - component: {fileID: 8378416862651298449}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Combat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
