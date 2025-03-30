@@ -7,7 +7,6 @@ public enum Stats {
     AttackSpeed,
     MaxHealth,
     ExpGain,
-    CritChance
 }
 
 public class PlayerStats : MonoBehaviour {
@@ -34,7 +33,6 @@ public class PlayerStats : MonoBehaviour {
         baseStats[Stats.AttackSpeed] = defaultStats.AttackSpeed;
         baseStats[Stats.MaxHealth] = defaultStats.MaxHealth;
         baseStats[Stats.ExpGain] = defaultStats.ExpGain;
-        baseStats[Stats.CritChance] = defaultStats.CritChance;
 
         //Set modifiers to 0 for later use
         foreach (Stats stat in Enum.GetValues(typeof(Stats)))

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a14db01a1b3b624d90eb4b0832aab0a, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 20
   projectileSpeed: 10

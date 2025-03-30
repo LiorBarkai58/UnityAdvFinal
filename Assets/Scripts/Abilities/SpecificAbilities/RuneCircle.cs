@@ -7,7 +7,10 @@ public class RuneCircle : Ability
 
     [SerializeField] private float Damage;
 
-
+    private void Start()
+    {
+        _level = 1;
+    }
     public override bool AbilityLogic()
     {
         if(enemiesInRange.Count == 0) return false;

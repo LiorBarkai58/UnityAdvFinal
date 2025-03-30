@@ -6,6 +6,10 @@ public class Sword : RuneCircle
 {
     [SerializeField] private ParticleSystem effect;
 
+    private void Start()
+    {
+        _level = 0;
+    }
     public override bool AbilityLogic()
     {
         effect.Play();

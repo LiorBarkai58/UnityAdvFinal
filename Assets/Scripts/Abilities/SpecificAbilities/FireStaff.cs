@@ -9,6 +9,7 @@ public class FireStaff : Ability
 
     private int _ProjectileCount = 1;
 
+    
     public override bool AbilityLogic()
     {
         if(enemiesInRange.Count > 0){

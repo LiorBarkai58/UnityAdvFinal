@@ -11,7 +11,7 @@ public abstract class Ability : MonoBehaviour {
 
     public int AbilityID => GetType().Name.GetHashCode();
 
-    protected int _level = 1;
+    protected int _level = 0;
 
     public int Level => _level;
 
@@ -35,7 +35,7 @@ public abstract class Ability : MonoBehaviour {
         }   
     }
     public virtual void Activate(){
-        if(!onCooldown){
+        if(!onCooldown && _level > 0){
             if(AbilityLogic()){
                 onCooldown = true;
                 if (soundEffectPool.Count > 0)

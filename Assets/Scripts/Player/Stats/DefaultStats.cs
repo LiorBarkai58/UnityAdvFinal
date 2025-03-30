@@ -7,5 +7,4 @@ public class DefaultStats : ScriptableObject
     public float AttackSpeed = 1.0f;
     public float MaxHealth = 100f;
     public float ExpGain = 1.0f;
-    public float CritChance = 5f;
 }
