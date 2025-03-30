@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             Debug.LogWarning("No save file found");
+            NewGameButton();
 
         }
     }
