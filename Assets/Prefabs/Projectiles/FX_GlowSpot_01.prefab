@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 199143939678563640}
   - component: {fileID: 1082405594898798622}
   - component: {fileID: 4417830698840904155}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: FX_GlowSpot_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4861,7 +4861,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

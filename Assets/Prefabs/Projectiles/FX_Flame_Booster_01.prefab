@@ -4655,7 +4655,6 @@ GameObject:
   - component: {fileID: 199876713702356702}
   - component: {fileID: -5603442354759590363}
   - component: {fileID: 3551946279241309088}
-  - component: {fileID: 5787646276461812019}
   m_Layer: 6
   m_Name: FX_Flame_Booster_01
   m_TagString: Untagged
@@ -9408,16 +9407,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.75
   m_Center: {x: 0, y: 0.71, z: 0}
---- !u!114 &5787646276461812019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325620532855614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edab397c508883e41b855b610b4fb880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileData: {fileID: 11400000, guid: 1ccd68b53b02198429abe933beb2c60a, type: 2}

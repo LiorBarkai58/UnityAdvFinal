@@ -50,7 +50,6 @@ public class PlayerExperience : MonoBehaviour {
         saveData.currentEXP = _currentEXP;
         saveData.level = _level;
     }
-
     private void LoadXPAndLevel(SerializedSaveGame saveData)
     {
         _currentEXP = saveData.currentEXP;
