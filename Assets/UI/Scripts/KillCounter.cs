@@ -31,14 +31,12 @@ public class KillCounter : MonoBehaviour {
     private void SaveKillCount(SerializedSaveGame saveData)
     {
         saveData.killCount = enemiesManager.KillCount;
-        Debug.Log($"[KillCounter] Saving kill count: {saveData.killCount}");
     }
 
     private void LoadKillCount(SerializedSaveGame saveData)
     {
         enemiesManager.KillCount = saveData.killCount;
         UpdateCounter(enemiesManager.KillCount);
-        Debug.Log($"[KillCounter] Loaded kill count: {enemiesManager.KillCount}");
     }
 
 }

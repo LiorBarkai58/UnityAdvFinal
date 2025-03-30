@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
+    [Header("Scene References")]
     [SerializeField] private PlayerCombatManager player;
-    [SerializeField] private TextMeshProUGUI subheaderTMP;
+    [SerializeField] private EnemiesManager enemiesManager;
+
+    [SerializeField] private EnemyPool enemyPool;
     [SerializeField] private GameObject hudCanvas;
     [SerializeField] private GameObject deathCanvas;
+
+    [Header("Hierarchy references")]
+
+    [SerializeField] private TextMeshProUGUI KillCounterText;
+    [SerializeField] private TextMeshProUGUI TimerText;
+    [SerializeField] private TextMeshProUGUI subheaderTMP;
+
     private List<string> subheaderMessages;
     
 
@@ -34,6 +44,10 @@ public class DeathScreen : MonoBehaviour
         Debug.Log("player died");
         hudCanvas.SetActive(false);
         deathCanvas.SetActive(true);
+        KillCounterText.SetText(enemiesManager.KillCount.ToString());
+        TimerText.SetText(string.Format("{0:00}:{1:00}", enemyPool.Timer/60, enemyPool.Timer%60));
+        
+        SaveGameManager.Instance.DeleteSaveData();
         Time.timeScale = 0f;
         SetSubheaderText();
 

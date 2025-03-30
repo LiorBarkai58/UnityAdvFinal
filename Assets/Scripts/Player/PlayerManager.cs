@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour {
 
     [Header("References")]
     [SerializeField] private Animator animator;
+    [SerializeField] private PlayerInput playerInput;
+
 
 
 
@@ -57,6 +59,7 @@ public class PlayerManager : MonoBehaviour {
 
     private void HandleDeath(CombatManager combatManager){
         animator.SetTrigger(Death);
+        playerInput.enabled = false;
     }
 
     private void UpdateStats(){

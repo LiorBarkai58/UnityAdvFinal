@@ -28,6 +28,7 @@ public class CombatManager : MonoBehaviour
     }
 
     public virtual void TakeDamage(DamageArgs damageArgs){
+        if(currentHealth <= 0) return;
         currentHealth -= damageArgs.Damage;
         OnTakeDamage?.Invoke(damageArgs);
         if(currentHealth <= 0){
@@ -48,7 +49,6 @@ public class CombatManager : MonoBehaviour
     protected void UpdateHealthBar(){
         if (healthBar)
         {
-            Debug.Log($"Updating healthBar: {currentHealth}/{currentMaxHealth}");
             healthBar.SetFillAmount(currentHealth, currentMaxHealth);
         }
         else
