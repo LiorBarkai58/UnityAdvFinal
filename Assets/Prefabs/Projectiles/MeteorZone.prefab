@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3683374679111055448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2457026447534524084}
+  - component: {fileID: 2091408166005969061}
+  - component: {fileID: 375123253435383336}
+  m_Layer: 6
+  m_Name: MeteorZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2457026447534524084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683374679111055448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 167.60881, y: 22.81, z: 189.80945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2410568278976119931}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2091408166005969061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683374679111055448}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.201462, y: 3.316208, z: 10.8329315}
+  m_Center: {x: 1.2164078, y: 1.158104, z: 2.724678}
+--- !u!114 &375123253435383336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683374679111055448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eba5326026ca447ab67211347af844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneData: {fileID: 11400000, guid: 7e870ff24bc3dc54c8a598354d7985b2, type: 2}
+  particles: {fileID: 0}
+  VFX: {fileID: 6868353179851647607}
+--- !u!1001 &3497348986448004103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2457026447534524084}
+    m_Modifications:
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052155505286345684, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_Name
+      value: Meteor Shower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052155505286345684, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+--- !u!4 &2410568278976119931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1296222282862821500, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+  m_PrefabInstance: {fileID: 3497348986448004103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &6868353179851647607 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 8059295489309617776, guid: 37665089265389442b30d1ab014bfd12, type: 3}
+  m_PrefabInstance: {fileID: 3497348986448004103}
+  m_PrefabAsset: {fileID: 0}

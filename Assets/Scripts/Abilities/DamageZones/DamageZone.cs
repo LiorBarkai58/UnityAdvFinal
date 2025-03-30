@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 
 public class DamageZone : MonoBehaviour{
 
     [SerializeField] private ZoneData zoneData;
 
+    [Header("For particle use - Ok to leave empty")]
     [SerializeField] private ParticleSystem particles;
+
+    [Header("For VFX use - Ok to leave empty")]
+    [SerializeField] private VisualEffect VFX;
     private float _damageModifier = 1;
 
     private List<CombatManager> enemiesInRange = new List<CombatManager>();
@@ -18,7 +23,8 @@ public class DamageZone : MonoBehaviour{
     }
     private void Start()
     {
-        particles.Play();
+        if(particles) particles.Play();
+        if(VFX) VFX.Play();
         StartCoroutine(DamageInZone());   
     }
 
