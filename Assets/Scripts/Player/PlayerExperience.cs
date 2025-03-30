@@ -26,6 +26,8 @@ public class PlayerExperience : MonoBehaviour {
 
     [SerializeField] private int LinearGrowth = 7;
     [SerializeField] private ParticleSystem particles;
+    [SerializeField] private AudioClip levelUp;
+    [SerializeField] private AudioClip pickupSFX;
 
     public event UnityAction OnLevelUp;
 
@@ -71,6 +73,7 @@ public class PlayerExperience : MonoBehaviour {
         if(_currentEXP > currentReq){
             _currentEXP -= currentReq;
             _level++;
+            AudioManager.Instance.PlaySFX(levelUp);
             particles.Play();
             OnLevelUp?.Invoke();
             CheckForLevelup();
@@ -83,6 +86,7 @@ public class PlayerExperience : MonoBehaviour {
 
     private void IncreaseEXP(float exp){
         _currentEXP += Mathf.Max(exp * _gainMultiplier, 0);//Make sure you can't take away exp
+        AudioManager.Instance.PlaySFX(pickupSFX);
         CheckForLevelup();
     }
 

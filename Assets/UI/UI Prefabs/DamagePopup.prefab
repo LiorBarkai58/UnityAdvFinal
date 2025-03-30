@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomIntensity: {x: 0.5, y: 0, z: 0}
+  critColor: {r: 0.90943396, g: 0.6134214, b: 0, a: 1}
 --- !u!95 &3075446743246989736
 Animator:
   serializedVersion: 7

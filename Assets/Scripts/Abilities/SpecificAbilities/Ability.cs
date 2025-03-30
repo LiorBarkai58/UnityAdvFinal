@@ -1,8 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class Ability : MonoBehaviour {
 
     [SerializeField] private float Cooldown;
+    [SerializeField] private List<AudioClip> soundEffectPool;
     private float elapsedCooldown = 0;
 
     private bool onCooldown = false;
@@ -16,6 +18,9 @@ public abstract class Ability : MonoBehaviour {
     protected float _damageModifier = 1;
 
     protected float _personalAttackSpeedMultiplier = 1;
+
+    protected List<CombatManager> enemiesInRange = new List<CombatManager>();
+
 
 
     //Attackspeed multiplier is a way to reduce the cooldown and increase the recharge rate of abilities
@@ -33,6 +38,11 @@ public abstract class Ability : MonoBehaviour {
         if(!onCooldown){
             if(AbilityLogic()){
                 onCooldown = true;
+                if (soundEffectPool.Count > 0)
+                {
+                    AudioClip soundEffect = soundEffectPool[Random.Range(0, soundEffectPool.Count)];
+                    AudioManager.Instance.PlaySFX(soundEffect);
+                }
             }
         }
     }
@@ -48,4 +58,34 @@ public abstract class Ability : MonoBehaviour {
         _level = 1;
     }
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy")){
+            CombatManager enemyCombat = other.GetComponent<CombatManager>();
+            if(enemyCombat){
+                enemiesInRange.Add(enemyCombat);
+                enemyCombat.OnDeath += HandleEnemyDeath;
+            }
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Enemy")){
+            CombatManager enemyCombat = other.GetComponent<CombatManager>();
+            if(enemyCombat && enemiesInRange.Contains(enemyCombat)){
+                enemiesInRange.Remove(enemyCombat);
+                enemyCombat.OnDeath -= HandleEnemyDeath;
+
+            }
+        }
+    }
+
+    private void HandleEnemyDeath(CombatManager enemy){
+        if(enemiesInRange.Contains(enemy)){
+            enemiesInRange.Remove(enemy);
+        }
+    }
+
+    
 }

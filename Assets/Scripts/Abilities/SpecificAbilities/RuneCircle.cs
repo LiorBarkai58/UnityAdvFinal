@@ -5,8 +5,6 @@ using UnityEngine;
 public class RuneCircle : Ability
 {
 
-    private List<CombatManager> enemiesInRange = new List<CombatManager>();
-
     [SerializeField] private float Damage;
 
 
@@ -23,33 +21,6 @@ public class RuneCircle : Ability
         return true;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Enemy")){
-            CombatManager enemyCombat = other.GetComponent<CombatManager>();
-            if(enemyCombat){
-                enemiesInRange.Add(enemyCombat);
-                enemyCombat.OnDeath += HandleEnemyDeath;
-            }
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if(other.CompareTag("Enemy")){
-            CombatManager enemyCombat = other.GetComponent<CombatManager>();
-            if(enemyCombat && enemiesInRange.Contains(enemyCombat)){
-                enemiesInRange.Remove(enemyCombat);
-                enemyCombat.OnDeath -= HandleEnemyDeath;
-
-            }
-        }
-    }
-
-    private void HandleEnemyDeath(CombatManager enemy){
-        if(enemiesInRange.Contains(enemy)){
-            enemiesInRange.Remove(enemy);
-        }
-    }
     public override void UpgradeAbility()
     {
         base.UpgradeAbility();

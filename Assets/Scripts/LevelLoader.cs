@@ -51,6 +51,7 @@ public class LevelLoader : MonoBehaviour
         {
             SaveGameManager.Instance.SaveGame();
         }
+        AudioManager.Instance.ResetMixer();
         StartCoroutine(LoadScene(sceneIndex));
     }
 

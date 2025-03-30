@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -17,4 +18,8 @@ public class PlayerInteractions : MonoBehaviour {
     public void OnLevelupShrine(){
         playerExperience.ShrineLevelUp();
     }
+
+    
+
+    
 }

@@ -4,16 +4,15 @@ public class ShrineInteraction : MonoBehaviour
 {
     [SerializeField] private GameObject frogModel;
     [SerializeField] private GameObject interationPrompt;
-    private PlayerInteractions playerInteractions;
+    public PlayerInteractions playerInteractions;
     private bool isInteractRadius;
 
     private bool used = false;
 
     private void HandleInteraction()
     {
-        if (isInteractRadius && !used)
+        if (isInteractRadius && !used && playerInteractions)
         {
-            Debug.Log("interaction event triggered");
             playerInteractions.OnLevelupShrine();
             interationPrompt.SetActive(false);
             used = true;
@@ -28,12 +27,14 @@ public class ShrineInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player") && !used)
         {
-            isInteractRadius = true;
-            interationPrompt.SetActive(true);
-            playerInteractions = other.gameObject.GetComponent<PlayerInteractions>();
+            
+            PlayerInteractions current = other.gameObject.GetComponent<PlayerInteractions>();
 
-            if (playerInteractions)
+            if (current)
             {
+                isInteractRadius = true;
+                interationPrompt.SetActive(true);
+                playerInteractions = current;
                 playerInteractions.OnPlayerInteract += HandleInteraction;
 
             }
@@ -45,11 +46,12 @@ public class ShrineInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player") && !used)
         {
-            isInteractRadius = false;
-            Debug.Log("player left interaction radius");
-            if(interationPrompt) interationPrompt.SetActive(false);
-            if(playerInteractions){
+            PlayerInteractions current = other.gameObject.GetComponent<PlayerInteractions>();
+            if(playerInteractions == current){
+                isInteractRadius = false;
+                if(interationPrompt) interationPrompt.SetActive(false);
                 playerInteractions.OnPlayerInteract -= HandleInteraction;
+                playerInteractions = null;
             }
         }
     }

@@ -67,8 +67,9 @@ public class EnemiesManager : MonoBehaviour {
         float angle = Random.Range(0, Mathf.PI * 2);
         float xOffset = Mathf.Cos(angle) * spawnRadius;
         float zOffset = Mathf.Sin(angle) * spawnRadius;
-
-        Vector3 playerPos = playerTransform.PlayersTransform.position;
+        Vector3 playerPos;
+        if(playerTransform) playerPos  = playerTransform.PlayersTransform.position;
+        else playerPos = transform.position;
         return new Vector3(playerPos.x + xOffset, playerPos.y + spawnHeight, playerPos.z + zOffset);
     }
 }
