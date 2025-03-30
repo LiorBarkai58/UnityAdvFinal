@@ -55,6 +55,7 @@ public class PlayerExperience : MonoBehaviour {
         _currentEXP = saveData.currentEXP;
         _level = saveData.level;
         OnEXPChange?.Invoke(_currentEXP, GetLevelupRequirement());
+        OnLevelUp?.Invoke();
     }
 
     public void setMultiplier(float gainMultiplier){
