@@ -34,11 +34,13 @@ public class PlayerController : MonoBehaviour
 
     public event UnityAction OnPlayerPause;
 
-
+    void Awake()
+    {
+        playerTransform.PlayersTransform = transform;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        playerTransform.PlayersTransform = transform;
     }
 
     
