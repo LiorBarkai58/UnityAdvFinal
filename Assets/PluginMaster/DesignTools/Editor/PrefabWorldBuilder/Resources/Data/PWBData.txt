@@ -484,7 +484,7 @@
         ],
         "_selectedProfileName": "Default",
         "_unsavedProfile": {
-            "_radius": 2.7644238471984865,
+            "_radius": 1.0,
             "_paintTool": {
                 "_parentGlobalId": "",
                 "_autoCreateParent": true,
@@ -613,7 +613,7 @@
                 "z": 0.0
             },
             "_spacingType": 0,
-            "_minSpacing": 2.4539260864257814,
+            "_minSpacing": 1.0,
             "_randomizePositions": true,
             "_randomness": 1.0,
             "_paintOnSurfaceToolSettings": {
@@ -623,7 +623,7 @@
                 "_mode": 0,
                 "_paralellToTheSurface": true
             },
-            "_maxHeightFromCenter": 2.7644238471984865,
+            "_maxHeightFromCenter": 2.0,
             "_heightType": 1,
             "_avoidOverlapping": 4,
             "_layerFilter": {
@@ -638,7 +638,8 @@
                 "MainCamera",
                 "Player",
                 "GameController",
-                "Enemy"
+                "Enemy",
+                "ExpShard"
             ],
             "_slopeFilter": {
                 "_v1": 0.0,
@@ -939,7 +940,7 @@
                 "z": 0.0
             },
             "_spacingType": 0,
-            "_minSpacing": 2.939817428588867,
+            "_minSpacing": 1.0,
             "_randomizePositions": true,
             "_randomness": 1.0,
             "_simData": {
@@ -6532,7 +6533,7 @@
         ],
         "_selectedProfileName": "Default",
         "_unsavedProfile": {
-            "_radius": 3.39229154586792,
+            "_radius": 1.0,
             "_modifierTool": {
                 "_command": 0,
                 "_onlyTheClosest": false,
@@ -6602,7 +6603,8 @@
                 "MainCamera",
                 "Player",
                 "GameController",
-                "Enemy"
+                "Enemy",
+                "ExpShard"
             ]
         }
     },
@@ -7290,8 +7292,8 @@
             },
             "_origin": {
                 "x": 0.0,
-                "y": 24.40384864807129,
-                "z": 204.83045959472657
+                "y": 0.0,
+                "z": 0.0
             },
             "_rotation": {
                 "x": 0.0,

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SpawnArea.unity
     guid: 263abe41d1e93404192a4f06779c1c9f
   - enabled: 1
-    path: Assets/Scenes/EnvironmentLior.unity
+    path: Assets/Scenes/MainGame.unity
     guid: 3cbc92d7cba1b8942a040d7fdb262e9f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c7e5f4b2f69f9784c865dc3f4f04446f, type: 3}
