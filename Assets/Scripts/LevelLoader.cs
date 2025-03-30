@@ -45,9 +45,9 @@ public class LevelLoader : MonoBehaviour
     //}
 
 
-    public void LoadLevel(int sceneIndex)
+    public void LoadLevel(int sceneIndex, bool shouldSaveBeforeLoad = false)
     {
-        if (SaveGameManager.Instance != null)
+        if (shouldSaveBeforeLoad && SaveGameManager.Instance != null)
         {
             SaveGameManager.Instance.SaveGame();
         }

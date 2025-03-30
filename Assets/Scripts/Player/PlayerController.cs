@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void LoadPlayerState(SerializedSaveGame saveData)
     {
-        transform.position = new Vector3(saveData.playerPositionX, saveData.playerPositionY, saveData.playerPositionZ);
+        transform.position = new Vector3(saveData.playerPositionX, saveData.playerPositionY + 3, saveData.playerPositionZ);
         transform.eulerAngles = new Vector3(saveData.playerRotationX, saveData.playerRotationY, saveData.playerRotationZ);
     }
 
