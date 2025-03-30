@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private SaveGameManager saveGameManager;
+
     public void NewGameButton()
     {
         PlayerPrefs.SetInt("ShouldLoadGame", 0);

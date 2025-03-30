@@ -74,8 +74,8 @@ public class DeathScreen : MonoBehaviour
     {
         deathCanvas.SetActive(false);
         hudCanvas.SetActive(true);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         Time.timeScale = 1f;
         LevelLoader.Instance.LoadLevel(0);
