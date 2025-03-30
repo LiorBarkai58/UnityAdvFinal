@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
-
 public abstract class Ability : MonoBehaviour {
 
     [SerializeField] private float Cooldown;
@@ -10,6 +8,9 @@ public abstract class Ability : MonoBehaviour {
     private float elapsedCooldown = 0;
 
     private bool onCooldown = false;
+
+    public int AbilityID => GetType().Name.GetHashCode();
+
     protected int _level = 1;
 
     public int Level => _level;
@@ -50,6 +51,11 @@ public abstract class Ability : MonoBehaviour {
 
     public virtual void UpgradeAbility(){
         _level++;
+    }
+
+    public virtual void ResetLevel()
+    {
+        _level = 1;
     }
 
 

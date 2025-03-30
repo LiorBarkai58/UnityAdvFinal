@@ -10,7 +10,7 @@ public class UI_ProgressBar : MonoBehaviour
     public void SetFillAmount(float current, float max)
     {
         float currentFill = current / max;
-
+        Debug.Log($"Setting fill amount: {currentFill} ({current}/{max})");
         Fill.fillAmount = currentFill;
     }
 }

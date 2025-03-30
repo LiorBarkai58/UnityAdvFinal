@@ -6,12 +6,10 @@ public class EnemyProjectile : MonoBehaviour
 
     [SerializeField] private ProjectileData projectileData;
 
-   // [SerializeField] private bool PlayerProjectile;
-
-
     public void SetDirection(Vector3 direction)
     {
         this.Direction = direction;
+        Destroy(gameObject, 10);
     }
 
     private void Update()

@@ -7,12 +7,13 @@ public class EnemyCombatManager : CombatManager {
 
     [SerializeField] private ExperienceShard experienceShardPrefab;
 
-    public void Initialize(){
-        currentMaxHealth = combatData.MaxHealth;
-        currentHealth = combatData.MaxHealth;
+    public void Initialize(float HealthMultiplier = 1){
+        currentMaxHealth = combatData.MaxHealth * HealthMultiplier;
+        currentHealth = combatData.MaxHealth * HealthMultiplier;
         UpdateHealthBar();
 
     }
+    
 
     public override void TakeDamage(DamageArgs damageArgs)
     {

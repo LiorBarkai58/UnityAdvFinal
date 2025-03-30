@@ -5,14 +5,14 @@ using System.Collections;
 
 public class EnemyManager : MonoBehaviour {
 
-    private static readonly int Death = Animator.StringToHash("Death");
-
     [SerializeField] private Animator animator;
     [SerializeField] private EnemyCombatManager combatManager;
     [SerializeField] private EnemyMovement movement;
+
     
     public event UnityAction<EnemyManager> OnDeath;
 
+    
     private void Start()
     {
         combatManager.OnDeath += HandleDeath;
@@ -34,6 +34,10 @@ public class EnemyManager : MonoBehaviour {
             combatManager = gameObject.GetComponentInChildren<EnemyCombatManager>();
         }
     }
+
+    public void SetMaxhpMultiplier(float maxHPmultiplier){
+        combatManager.Initialize(maxHPmultiplier);
+    }   
 
 
 }

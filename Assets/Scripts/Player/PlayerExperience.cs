@@ -33,6 +33,32 @@ public class PlayerExperience : MonoBehaviour {
 
     public event UnityAction<float, float> OnEXPChange;//Current exp/ Current requirement
 
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SaveXPAndLevel;
+        SaveGameManager.OnLoad += LoadXPAndLevel;
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SaveXPAndLevel;
+        SaveGameManager.OnLoad -= LoadXPAndLevel;
+    }
+
+    private void SaveXPAndLevel(SerializedSaveGame saveData)
+    {
+        saveData.currentEXP = _currentEXP;
+        saveData.level = _level;
+    }
+
+    private void LoadXPAndLevel(SerializedSaveGame saveData)
+    {
+        _currentEXP = saveData.currentEXP;
+        _level = saveData.level;
+        OnEXPChange?.Invoke(_currentEXP, GetLevelupRequirement());
+        OnLevelUp?.Invoke();
+    }
+
     public void setMultiplier(float gainMultiplier){
         _gainMultiplier = gainMultiplier;
     }
@@ -63,6 +89,7 @@ public class PlayerExperience : MonoBehaviour {
         AudioManager.Instance.PlaySFX(pickupSFX);
         CheckForLevelup();
     }
+
     private void HandleShard(ExperienceShard shard){
         if(shard){
             IncreaseEXP(shard.EXPValue);

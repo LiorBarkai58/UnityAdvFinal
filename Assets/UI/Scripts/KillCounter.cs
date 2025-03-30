@@ -12,7 +12,33 @@ public class KillCounter : MonoBehaviour {
         else Debug.LogWarning("Missing enemiesmanager reference in killcounter");
     }
 
+    private void OnEnable()
+    {
+        SaveGameManager.OnSave += SaveKillCount;
+        SaveGameManager.OnLoad += LoadKillCount;
+    }
+
+    private void OnDisable()
+    {
+        SaveGameManager.OnSave -= SaveKillCount;
+        SaveGameManager.OnLoad -= LoadKillCount;
+    }
+
     private void UpdateCounter(int currentKills){
         killCounter.SetText(currentKills.ToString());
     }
+
+    private void SaveKillCount(SerializedSaveGame saveData)
+    {
+        saveData.killCount = enemiesManager.KillCount;
+        Debug.Log($"[KillCounter] Saving kill count: {saveData.killCount}");
+    }
+
+    private void LoadKillCount(SerializedSaveGame saveData)
+    {
+        enemiesManager.KillCount = saveData.killCount;
+        UpdateCounter(enemiesManager.KillCount);
+        Debug.Log($"[KillCounter] Loaded kill count: {enemiesManager.KillCount}");
+    }
+
 }

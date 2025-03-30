@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using System;
 
 public class SaveGameManager : MonoBehaviour
 {
@@ -7,50 +8,61 @@ public class SaveGameManager : MonoBehaviour
 
     private SerializedSaveGame serializedSaveGame;
 
-    [SerializeField] private PlayerTransform playerTransform;
-    [SerializeField] private PlayerCombatManager combatManager;
-    [SerializeField] private PlayerExperience playerExperience;
+    public static event Action<SerializedSaveGame> OnSave;
+    public static event Action<SerializedSaveGame> OnLoad;
+
+    public static SaveGameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 
     [ContextMenu("Save")]
     
     public void SaveGame()
     {
+        Debug.Log("=== SAVING ABILITIES ===");
         serializedSaveGame = new SerializedSaveGame();
 
-        serializedSaveGame.playerPositionX = playerTransform.PlayersTransform.position.x;
-        serializedSaveGame.playerPositionY = playerTransform.PlayersTransform.position.y;
-        serializedSaveGame.playerPositionZ = playerTransform.PlayersTransform.position.y;
-
-        serializedSaveGame.playerRotationX = playerTransform.PlayersTransform.rotation.x;
-        serializedSaveGame.playerRotationY = playerTransform.PlayersTransform.rotation.y;
-        serializedSaveGame.playerRotationZ = playerTransform.PlayersTransform.rotation.z;
-
-        serializedSaveGame.playerHP = combatManager.CurrentHealth;
-
-        serializedSaveGame.currentEXP = playerExperience.CurrentEXP;
-        serializedSaveGame.level = playerExperience.Level;
+        OnSave?.Invoke(serializedSaveGame);
 
         SaveToJson();
 
     }
 
+    [ContextMenu("Load")]
     public void LoadGame()
     {
+        Debug.Log("=== LOADING ABILITIES ===");
+
         LoadFromJson();
 
-        playerTransform.PlayersTransform.position = new Vector3(
-            serializedSaveGame.playerPositionX, 
-            serializedSaveGame.playerPositionY, 
-            serializedSaveGame.playerPositionZ);
+        OnLoad?.Invoke(serializedSaveGame);
 
-        playerTransform.PlayersTransform.eulerAngles = new Vector3(
-            serializedSaveGame.playerRotationX,
-            serializedSaveGame.playerRotationY,
-            serializedSaveGame.playerRotationZ);
+    }
 
-        combatManager.CurrentHealth = serializedSaveGame.playerHP;
-        playerExperience.CurrentEXP = serializedSaveGame.currentEXP;
-        playerExperience.Level = serializedSaveGame.level;
+    public void DeleteSaveData()
+    {
+        string savePath = Application.persistentDataPath + SAVE_FILE_NAME;
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            Debug.Log("Save file deleted");
+        }
     }
 
     private void SaveToJson()

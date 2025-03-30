@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class EnemiesManager : MonoBehaviour {
     [SerializeField] private PlayerTransform playerTransform;
     [SerializeField] private EnemyPool enemyPool;
+    [SerializeField] private GameObject explosion1;
+    [SerializeField] private GameObject explosion2;
     private List<EnemyManager> enemies = new List<EnemyManager>();
 
     [Header("Spawn Details")]
@@ -15,6 +17,11 @@ public class EnemiesManager : MonoBehaviour {
     [SerializeField] private int AmountToSpawn = 5;
 
     private int KillCounter = 0;
+
+    public int KillCount
+    {
+        get => KillCounter; set { KillCounter = value; }
+    }
 
     public event UnityAction<int> OnKillUpdated;
     void Start()
@@ -29,6 +36,13 @@ public class EnemiesManager : MonoBehaviour {
         enemies.Remove(enemy);
         KillCounter++;
         OnKillUpdated?.Invoke(KillCounter);
+
+        if (Random.value <= 0.4f)
+        {
+            GameObject explosionPrefab = Random.value < 0.5f ? explosion1 : explosion2;
+            GameObject explosion = Instantiate(explosionPrefab, enemy.transform.position, Quaternion.identity);
+            Destroy(explosion, 3f);
+        }
     }
 
     private IEnumerator EnemySpawning(){
@@ -39,6 +53,7 @@ public class EnemiesManager : MonoBehaviour {
                 currentEnemy.OnDeath += HandleEnemyDeath;
                 currentEnemy.transform.position = GetSpawnPosition();
                 currentEnemy.gameObject.SetActive(true);
+                currentEnemy.SetMaxhpMultiplier(1 + enemyPool.Timer/60);
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(SpawnInterval);

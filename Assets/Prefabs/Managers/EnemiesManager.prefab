@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 11400000, guid: 01b82b2cb5331dc449f603c3379127f9, type: 2}
   enemyPool: {fileID: 1965741231803289632}
+  explosion1: {fileID: 1607639662943796, guid: 05c97dfbc8e7a884caa13e83729d8b3c, type: 3}
+  explosion2: {fileID: 1277154925287174, guid: 657bd579ab45373469a04b427a2476ae, type: 3}
   SpawnInterval: 3
   AmountToSpawn: 5
 --- !u!114 &1965741231803289632
@@ -61,5 +63,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e622550586ab6447bb88a9f6f4565c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 7518878975812777743, guid: 91ff4350b099d9f49b544cdda2dcccdd, type: 3}
+  EnemyPrefabs:
+  - {fileID: 7518878975812777743, guid: 91ff4350b099d9f49b544cdda2dcccdd, type: 3}
+  - {fileID: 5918344047921997871, guid: 76e3cec15f214fb448ed7d85aa558f6d, type: 3}
+  - {fileID: 2609023814728947933, guid: 33220fd4973ed1b42bff208812da82a1, type: 3}
+  - {fileID: 6871128013010062174, guid: 52141c9188fedc34894b3893dc4c28ad, type: 3}
+  - {fileID: 6344355607736513069, guid: 464e1fa798d275a47b851d9f537427eb, type: 3}
+  - {fileID: 4579107368047884589, guid: 5b350445c71d6784bb099cd74373da47, type: 3}
+  - {fileID: 7795500543325605502, guid: 2bfaa83d444e37c4b978ed7d11a0f0a6, type: 3}
+  - {fileID: 4373698203354392479, guid: 3fc4f0e32dba0be41b9bb98305070fba, type: 3}
   AmountToPool: 10

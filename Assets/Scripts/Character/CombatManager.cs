@@ -26,6 +26,7 @@ public class CombatManager : MonoBehaviour
         UpdateHealthBar();
 
     }
+
     public virtual void TakeDamage(DamageArgs damageArgs){
         currentHealth -= damageArgs.Damage;
         OnTakeDamage?.Invoke(damageArgs);
@@ -40,14 +41,20 @@ public class CombatManager : MonoBehaviour
         UpdateHealthBar();
     }
 
-    protected virtual void HandleDeath()
-    {
-        Debug.Log("calling death event");
+    protected virtual void HandleDeath(){
         OnDeath?.Invoke(this);
     }
 
     protected void UpdateHealthBar(){
-        if(healthBar) healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        if (healthBar)
+        {
+            Debug.Log($"Updating healthBar: {currentHealth}/{currentMaxHealth}");
+            healthBar.SetFillAmount(currentHealth, currentMaxHealth);
+        }
+        else
+        {
+            Debug.LogError("healthBar reference is null!");
+        }
     }
 
     

@@ -33,7 +33,12 @@ public class PlayerManager : MonoBehaviour {
     {
         playerStats.Initialize();
         abilityManager.SetAttackSpeed(playerStats.GetStatValue(Stats.AttackSpeed));
-        playerCombat.Initialize(playerStats.GetStatValue(Stats.MaxHealth));
+
+        if (PlayerPrefs.GetInt("ShouldLoadGame", 0) != 1)
+        {
+            playerCombat.Initialize(playerStats.GetStatValue(Stats.MaxHealth));
+        }
+
         playerCombat.OnDeath += HandleDeath;
         playerStats.OnStatsUpdated += UpdateStats;
         playerExperience.OnLevelUp += HandleLevelUp;

@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class FireStaff : Ability
 {
     [SerializeField] private Projectile FireBallPrefab;
 
 
     private int _ProjectileCount = 1;
-
 
     public override bool AbilityLogic()
     {

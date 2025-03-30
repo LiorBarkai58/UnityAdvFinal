@@ -16,7 +16,7 @@ MonoBehaviour:
   - stat: 0
     increaseValue: 0.2
   - stat: 1
-    increaseValue: 10
+    increaseValue: 0.1
   - stat: 2
     increaseValue: 0.1
   - stat: 3

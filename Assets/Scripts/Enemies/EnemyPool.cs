@@ -9,15 +9,17 @@ public class EnemyPool : MonoBehaviour {
 
     private List<EnemyManager> enemyPool = new List<EnemyManager>();
 
-    private float Timer = 0;
+    private float timer = 0;
+
+    public float Timer => timer;
 
     private int lastEnemyIndex = 0;
     
-    private int maxEnemyTypes {get {return (int)Mathf.Clamp(Timer/30, 0, EnemyPrefabs.Count);}}
+    private int maxEnemyTypes {get {return (int)Mathf.Clamp(timer/30, 0, EnemyPrefabs.Count);}}
 
     private void Update()
     {
-        Timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
         if(maxEnemyTypes+1 > lastEnemyIndex && lastEnemyIndex < EnemyPrefabs.Count){
             AddEnemyToPool(lastEnemyIndex++);

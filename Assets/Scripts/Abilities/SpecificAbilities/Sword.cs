@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sword : RuneCircle
 {
     [SerializeField] private ParticleSystem effect;
+
     public override bool AbilityLogic()
     {
         effect.Play();
