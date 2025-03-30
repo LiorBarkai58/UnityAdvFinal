@@ -41,22 +41,21 @@ public class LevelupManager : MonoBehaviour {
         for(int i = 0; i< Mathf.Min(2, abilities.Count); i++){
             Ability selectedAbility = AbilitiesCopy[Random.Range(0, AbilitiesCopy.Count)];
 
-            AbilitiesCopy.Remove(selectedAbility);
-
             if(i < abilityCards.Count){
-                Debug.Log("test");
                 abilityCards[i].SetAbility(selectedAbility);
             }
+            AbilitiesCopy.Remove(selectedAbility);
+
 
         }
         for(int i = 0; i< Mathf.Min(2, stats.Count); i++){
             Stats selectedStat = StatsCopy[Random.Range(0, StatsCopy.Count)];
 
-            StatsCopy.Remove(selectedStat);
-            
             if(i < statCards.Count){
                 statCards[i].SetStat(selectedStat);
             }
+            StatsCopy.Remove(selectedStat);
+            
         }
 
         
