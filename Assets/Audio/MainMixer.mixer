@@ -63,6 +63,8 @@ AudioMixerController:
     name: BgmDistortion
   - guid: 2478511c755d0f24dabb905ab009417e
     name: Volume
+  - guid: 6e7d646acf3470145adf592b7e3fb77a
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - e66d139d958ec624092bdd9b8e0d4892

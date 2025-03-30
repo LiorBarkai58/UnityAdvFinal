@@ -7,7 +7,8 @@ using UnityEngine.Rendering;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField] private Text volumeText;
+    [SerializeField] private Text BGMvolumeText;
+    [SerializeField] private Text SFXvolumeText;
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
@@ -39,7 +40,7 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        volumeText.text = ($"VOLUME: {audioMixer.GetFloat("Volume", out currentVolume)}");
+        BGMvolumeText.text = ($"VOLUME: {audioMixer.GetFloat("Volume", out currentVolume)}");
     }
 
     public void SetResolution(int resolutionIndex)
@@ -51,10 +52,16 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerPrefs.Save();
     }
-    public void SetVolume(float volume)
+    public void SetBGMVolume(float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
-        volumeText.text =  ($"VOLUME: {(int)volume + 80}");
+        audioMixer.SetFloat("BgmVolume", volume);
+        BGMvolumeText.text =  ($"Music: {(int)volume + 80}");
+        currentVolume = volume;
+    }
+    public void SetSFXVolume(float volume)
+    {
+        audioMixer.SetFloat("SFXVolume", volume);
+        SFXvolumeText.text =  ($"SFX: {(int)volume + 80}");
         currentVolume = volume;
     }
     public void SetGraphicsQuality(int qualIndex)
